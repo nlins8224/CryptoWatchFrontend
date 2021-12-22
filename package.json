@@ -31,6 +31,7 @@
     "build": "craco build",
     "test": "craco test",
     "eslint": "eslint . --ext .ts",
+    "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -50,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "2.5.1"
   }
 }
