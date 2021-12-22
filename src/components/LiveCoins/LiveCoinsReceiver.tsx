@@ -132,9 +132,6 @@ const LiveCoinsReceiver: () => JSX.Element = () => {
       <div className="LiveCoins">
         <LiveCoinsTable assets={assetArray} />
       </div>
-      <React.Fragment>
-        <div>My Header Text</div>
-      </React.Fragment>
     </>
   );
 };
