@@ -17,7 +17,6 @@ const LiveCoinsSortedBy = (props: {
     }
 
     const ELEMENTS_AMOUNT = 8
-    console.log(assetArray);
 
     if (props.sortType === 'ascending') {
       const sortedBy: Array<Asset> = props.assets.sort(
