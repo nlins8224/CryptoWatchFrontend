@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { getDatabase, onValue, ref } from 'firebase/database';
 import { LiveCoinsTable } from './LiveCoinsTable';
 import { Asset } from '../../Asset';
-import 'antd';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.less';
 import { LiveCoinsSortedBy } from './LiveCoinsSortedBy';
 import { v4 as uuidv4 } from 'uuid';
-import { Col, Divider, Row } from 'antd';
+import {Button, Col, DatePicker, Divider, Input, Row, Space} from 'antd';
 
 const columnsVolume: any = [
   {
@@ -75,7 +74,12 @@ const LiveCoinsReceiver: () => JSX.Element = () => {
   };
 
   const parseAssets = (assetArray: Asset[]): Asset[] => {
-    return assetArray.map((obj) => ({ ...obj, key: uuidv4() }));
+    const assets = assetArray.map((obj) => ({ ...obj, key: uuidv4() }))
+    assets.forEach(obj => obj.price_change_percentage = Number(obj.price_change_percentage.toFixed(4)));
+    assets.forEach(obj => obj.price_change = Number(obj.price_change.toFixed(4)));
+    assets.forEach(obj => obj.price = Number(obj.price.toFixed(4)));
+
+    return assets
   };
 
   useEffect(() => {

@@ -16,17 +16,18 @@ const LiveCoinsSortedBy = (props: {
       return;
     }
 
+    const ELEMENTS_AMOUNT = 8
     console.log(assetArray);
 
     if (props.sortType === 'ascending') {
       const sortedBy: Array<Asset> = props.assets.sort(
         (a: Asset, b: Asset) => a[props.sortKey] - b[props.sortKey],
-      );
+      ).slice(0, ELEMENTS_AMOUNT);
       setAssetArray(sortedBy);
     } else if (props.sortType === 'descending') {
       const sortedBy: Array<Asset> = props.assets.sort(
         (a: Asset, b: Asset) => b[props.sortKey] - a[props.sortKey],
-      );
+      ).slice(0, ELEMENTS_AMOUNT);
       setAssetArray(sortedBy);
     }
   };
