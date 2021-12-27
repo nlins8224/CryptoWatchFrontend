@@ -16,6 +16,7 @@ module.exports = {
           lessOptions: {
             modifyVars: {
               '@primary-color': primaryColor,
+              '@body-background': componentSecondaryBackground,
               '@text-color': primaryText,
               '@text-color-secondary': primaryText,
               '@table-bg': componentPrimaryBackground,

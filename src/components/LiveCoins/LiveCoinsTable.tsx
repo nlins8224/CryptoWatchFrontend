@@ -2,6 +2,7 @@ import React from 'react';
 import { Table } from 'antd';
 import { Asset } from '../../Asset';
 import 'antd/dist/antd.css';
+import Text from "antd/es/typography/Text";
 
 const columns: any = [
   {
@@ -41,11 +42,12 @@ const columns: any = [
   },
 ];
 
-export function LiveCoinsTable(props: { assets: Array<Asset> }): JSX.Element {
+export function LiveCoinsTable(props: { assets: Array<Asset>, title: string }): JSX.Element {
   return (
     <>
-      <div>
-        <Table dataSource={props.assets} columns={columns} pagination={false} />
+      <div className="live-coins-title">
+        <Text>{props.title}</Text>
+        <Table dataSource={props.assets} columns={columns} pagination={false} size={'small'}/>
       </div>
     </>
   );

@@ -1,12 +1,14 @@
 import { Asset } from '../../Asset';
 import { Table } from 'antd';
 import React, { useEffect, useState } from 'react';
+import Text from "antd/es/typography/Text";
 
 const LiveCoinsSortedBy = (props: {
   assets: Asset[];
   sortKey: 'total_volume' | 'price_change_percentage';
   sortType: 'ascending' | 'descending';
   id: string;
+  title: string;
   columns: any;
 }): JSX.Element => {
   const [assetArray, setAssetArray] = useState<Asset[]>([]);
@@ -37,7 +39,8 @@ const LiveCoinsSortedBy = (props: {
 
   return (
     <>
-      <div id={props.id}>
+      <div className="live-coins-title" id={props.id}>
+        <Text>{props.title}</Text>
         <Table
           dataSource={assetArray}
           columns={props.columns}

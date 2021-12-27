@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.less';
+import './styles/App.less';
 import './database/firebase';
 import { LiveCoinsReceiver } from './components/LiveCoins/LiveCoinsReceiver';
 

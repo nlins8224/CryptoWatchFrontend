@@ -92,50 +92,41 @@ const LiveCoinsReceiver: () => JSX.Element = () => {
 
   return (
     <>
-      <Row>
-        <div className="MostActive" id="MostActive">
-          <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
-            <Divider orientation="left">
+      <Row align="middle" gutter={[24, 24]}>
+          <Col xs={{ span: 4, offset: 3 }} lg={{ span: 5, offset: 4 }}>
               <LiveCoinsSortedBy
                 id={'1'}
                 assets={assetArrayByVolume}
                 sortKey={'total_volume'}
                 sortType={'descending'}
+                title={'Most Active'}
                 columns={columnsVolume}
               />
-            </Divider>
           </Col>
-        </div>
-        <div className="TopGainers" id="TopGainers">
-          <Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }}>
-            <Divider orientation="center">
+          <Col xs={{ span: 4, offset: 0 }} lg={{ span: 5, offset: 0 }}>
               <LiveCoinsSortedBy
                 id={'2'}
                 assets={assetArrayByPriceChangeDsc}
                 sortKey={'price_change_percentage'}
                 sortType={'descending'}
+                title={'Top Gainers'}
                 columns={columnsPrice}
               />
-            </Divider>
           </Col>
-        </div>
-        <div className="TopLosers" id="TopLosers">
-          <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
-            <Divider orientation="right">
+          <Col xs={{ span: 4, offset: 0 }} lg={{ span: 5, offset: 0 }}>
               <LiveCoinsSortedBy
-                id={'2'}
+                id={'3'}
                 assets={assetArrayByPriceChangeAsc}
                 sortKey={'price_change_percentage'}
                 sortType={'ascending'}
+                title={'Top Losers'}
                 columns={columnsPrice}
               />
-            </Divider>
           </Col>
-        </div>
+        <Col xs={{ span: 12, offset: 3 }} lg={{ span: 15, offset: 4 }}>
+          <LiveCoinsTable assets={assetArray} title={'Cryptocurrency'} />
+        </Col>
       </Row>
-      <div className="LiveCoins">
-        <LiveCoinsTable assets={assetArray} />
-      </div>
     </>
   );
 };
