@@ -1,15 +1,13 @@
 import React from 'react';
 import './styles/App.less';
 import './database/firebase';
-import { LiveCoinsReceiver } from './components/LiveCoins/LiveCoinsReceiver';
+import {Routing} from "./components/Routing/Routing";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-        <div className="App-body">
-            <LiveCoinsReceiver />
-        </div>
-    </div>
+      <div className="App-body">
+          <Routing/>
+      </div>
   );
 }
 

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { getDatabase, onValue, ref } from 'firebase/database';
 import { LiveCoinsTable } from './LiveCoinsTable';
-import { Asset } from '../../Asset';
+import IAsset from '../../interfaces/Asset';
 import 'antd/dist/antd.less';
 import { LiveCoinsSortedBy } from './LiveCoinsSortedBy';
 import { v4 as uuidv4 } from 'uuid';
-import {Button, Col, DatePicker, Divider, Input, Row, Space} from 'antd';
+import {Col, Row} from 'antd';
 
 const columnsVolume: any = [
   {
@@ -56,24 +56,27 @@ const columnsPrice: any = [
 const db = getDatabase();
 const liveCoinsRef = ref(db, '/live-coins');
 const LiveCoinsReceiver: () => JSX.Element = () => {
-  const [assetArray, setAssetArray] = useState<Asset[]>([]);
+  const [assetArray, setAssetArray] = useState<IAsset[]>([]);
+  const [assetArrayByVolume, setAssetArrayByVolume] = useState<IAsset[]>([]);
+  const [assetArrayByPriceChangeAsc, setAssetArrayByPriceChangeAsc] = useState<IAsset[]>([]);
+  const [assetArrayByPriceChangeDsc, setAssetArrayByPriceChangeDsc] = useState<IAsset[]>([]);
 
   const setAssetStatusListener = (ref: any) => {
     onValue(ref, (snapshot) => {
-      const data: Map<string, Asset> = new Map(Object.entries(snapshot.val()));
-      let assets: Asset[] = getAssets(data);
+      const data: Map<string, IAsset> = new Map(Object.entries(snapshot.val()));
+      let assets: IAsset[] = getAssets(data);
       assets = parseAssets(assets);
       setAssetArray(assets);
     });
   };
 
-  const getAssets = (assetMap: Map<string, Asset> | undefined) => {
-    const assets: Asset[] = [];
-    assetMap?.forEach((value: Asset) => assets.push(value));
+  const getAssets = (assetMap: Map<string, IAsset> | undefined) => {
+    const assets: IAsset[] = [];
+    assetMap?.forEach((value: IAsset) => assets.push(value));
     return assets;
   };
 
-  const parseAssets = (assetArray: Asset[]): Asset[] => {
+  const parseAssets = (assetArray: IAsset[]): IAsset[] => {
     const assets = assetArray.map((obj) => ({ ...obj, key: uuidv4() }))
     assets.forEach(obj => obj.price_change_percentage = Number(obj.price_change_percentage.toFixed(4)));
     assets.forEach(obj => obj.price_change = Number(obj.price_change.toFixed(4)));
@@ -83,12 +86,28 @@ const LiveCoinsReceiver: () => JSX.Element = () => {
   };
 
   useEffect(() => {
-    setAssetStatusListener(liveCoinsRef);
-  }, []);
+    const arrayByVolume = parseAssets(assetArray);
+    const arrayByPriceChangeAsc = parseAssets(assetArray);
+    const arrayByPriceChangeDsc = parseAssets(assetArray);
 
-  const assetArrayByVolume = parseAssets(assetArray);
-  const assetArrayByPriceChangeAsc = parseAssets(assetArray);
-  const assetArrayByPriceChangeDsc = parseAssets(assetArray);
+    //console.log(arrayByVolume)
+    console.log("XDDD")
+
+    setAssetStatusListener(liveCoinsRef);
+
+    setAssetArrayByVolume(arrayByVolume)
+    setAssetArrayByPriceChangeAsc(arrayByPriceChangeAsc)
+    setAssetArrayByPriceChangeDsc(arrayByPriceChangeDsc)
+  }, [assetArray]);
+
+  useEffect( () => {
+    console.log("XD")
+    //console.log(assetArrayByVolume)
+  }, [assetArrayByVolume])
+
+  // const assetArrayByVolume = parseAssets(assetArray);
+  // const assetArrayByPriceChangeAsc = parseAssets(assetArray);
+  // const assetArrayByPriceChangeDsc = parseAssets(assetArray);
 
   return (
     <>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
-import { Asset } from '../../Asset';
+import IAsset from '../../interfaces/Asset';
 import 'antd/dist/antd.css';
 import Text from "antd/es/typography/Text";
 
@@ -42,7 +42,7 @@ const columns: any = [
   },
 ];
 
-export function LiveCoinsTable(props: { assets: Array<Asset>, title: string }): JSX.Element {
+export function LiveCoinsTable(props: { assets: Array<IAsset>, title: string }): JSX.Element {
   return (
     <>
       <div className="live-coins-title">

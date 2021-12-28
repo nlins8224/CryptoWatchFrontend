@@ -1,4 +1,4 @@
-export interface Asset {
+export default interface IAsset {
   high?: number;
   low?: number;
   id?: string;
