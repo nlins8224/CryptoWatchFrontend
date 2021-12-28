@@ -5,52 +5,8 @@ import IAsset from '../../interfaces/Asset';
 import 'antd/dist/antd.less';
 import { LiveCoinsSortedBy } from './LiveCoinsSortedBy';
 import {Col, Row} from 'antd';
+import {columnsVolume, columnsPrice, columns} from './config/columns'
 
-const columnsVolume: any = [
-  {
-    title: 'Symbol',
-    dataIndex: 'symbol',
-    key: 'symbol',
-  },
-  {
-    title: 'Volume',
-    dataIndex: 'total_volume',
-    key: 'volume',
-  },
-  {
-    title: 'Change',
-    dataIndex: 'price_change',
-    key: 'change',
-  },
-  {
-    title: '% Change',
-    dataIndex: 'price_change_percentage',
-    key: '% change',
-  },
-];
-
-const columnsPrice: any = [
-  {
-    title: 'Symbol',
-    dataIndex: 'symbol',
-    key: 'symbol',
-  },
-  {
-    title: 'Price',
-    dataIndex: 'price',
-    key: 'price',
-  },
-  {
-    title: 'Change',
-    dataIndex: 'price_change',
-    key: 'change',
-  },
-  {
-    title: '% Change',
-    dataIndex: 'price_change_percentage',
-    key: '% change',
-  },
-];
 
 const db = getDatabase();
 const liveCoinsRef = ref(db, '/live-coins');
@@ -119,7 +75,7 @@ const LiveCoinsReceiver: () => JSX.Element = () => {
               />
           </Col>
         <Col xs={{ span: 12, offset: 3 }} lg={{ span: 15, offset: 4 }}>
-          <LiveCoinsTable assets={assetArray} title={'Cryptocurrency'} />
+          <LiveCoinsTable assets={assetArray} title={'Cryptocurrency'} columns={columns} />
         </Col>
       </Row>
     </>
