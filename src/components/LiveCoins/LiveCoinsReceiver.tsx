@@ -4,7 +4,6 @@ import { LiveCoinsTable } from './LiveCoinsTable';
 import IAsset from '../../interfaces/Asset';
 import 'antd/dist/antd.less';
 import { LiveCoinsSortedBy } from './LiveCoinsSortedBy';
-import { v4 as uuidv4 } from 'uuid';
 import {Col, Row} from 'antd';
 
 const columnsVolume: any = [
@@ -57,9 +56,6 @@ const db = getDatabase();
 const liveCoinsRef = ref(db, '/live-coins');
 const LiveCoinsReceiver: () => JSX.Element = () => {
   const [assetArray, setAssetArray] = useState<IAsset[]>([]);
-  const [assetArrayByVolume, setAssetArrayByVolume] = useState<IAsset[]>([]);
-  const [assetArrayByPriceChangeAsc, setAssetArrayByPriceChangeAsc] = useState<IAsset[]>([]);
-  const [assetArrayByPriceChangeDsc, setAssetArrayByPriceChangeDsc] = useState<IAsset[]>([]);
 
   const setAssetStatusListener = (ref: any) => {
     onValue(ref, (snapshot) => {
@@ -77,7 +73,7 @@ const LiveCoinsReceiver: () => JSX.Element = () => {
   };
 
   const parseAssets = (assetArray: IAsset[]): IAsset[] => {
-    const assets = assetArray.map((obj) => ({ ...obj, key: uuidv4() }))
+    const assets = assetArray
     assets.forEach(obj => obj.price_change_percentage = Number(obj.price_change_percentage.toFixed(4)));
     assets.forEach(obj => obj.price_change = Number(obj.price_change.toFixed(4)));
     assets.forEach(obj => obj.price = Number(obj.price.toFixed(4)));
@@ -85,29 +81,9 @@ const LiveCoinsReceiver: () => JSX.Element = () => {
     return assets
   };
 
-  useEffect(() => {
-    const arrayByVolume = parseAssets(assetArray);
-    const arrayByPriceChangeAsc = parseAssets(assetArray);
-    const arrayByPriceChangeDsc = parseAssets(assetArray);
-
-    //console.log(arrayByVolume)
-    console.log("XDDD")
-
-    setAssetStatusListener(liveCoinsRef);
-
-    setAssetArrayByVolume(arrayByVolume)
-    setAssetArrayByPriceChangeAsc(arrayByPriceChangeAsc)
-    setAssetArrayByPriceChangeDsc(arrayByPriceChangeDsc)
-  }, [assetArray]);
-
   useEffect( () => {
-    console.log("XD")
-    //console.log(assetArrayByVolume)
-  }, [assetArrayByVolume])
-
-  // const assetArrayByVolume = parseAssets(assetArray);
-  // const assetArrayByPriceChangeAsc = parseAssets(assetArray);
-  // const assetArrayByPriceChangeDsc = parseAssets(assetArray);
+    setAssetStatusListener(liveCoinsRef);
+  }, [])
 
   return (
     <>
@@ -115,7 +91,7 @@ const LiveCoinsReceiver: () => JSX.Element = () => {
           <Col xs={{ span: 4, offset: 3 }} lg={{ span: 5, offset: 4 }}>
               <LiveCoinsSortedBy
                 id={'1'}
-                assets={assetArrayByVolume}
+                assets={assetArray}
                 sortKey={'total_volume'}
                 sortType={'descending'}
                 title={'Most Active'}
@@ -125,7 +101,7 @@ const LiveCoinsReceiver: () => JSX.Element = () => {
           <Col xs={{ span: 4, offset: 0 }} lg={{ span: 5, offset: 0 }}>
               <LiveCoinsSortedBy
                 id={'2'}
-                assets={assetArrayByPriceChangeDsc}
+                assets={assetArray}
                 sortKey={'price_change_percentage'}
                 sortType={'descending'}
                 title={'Top Gainers'}
@@ -135,7 +111,7 @@ const LiveCoinsReceiver: () => JSX.Element = () => {
           <Col xs={{ span: 4, offset: 0 }} lg={{ span: 5, offset: 0 }}>
               <LiveCoinsSortedBy
                 id={'3'}
-                assets={assetArrayByPriceChangeAsc}
+                assets={assetArray}
                 sortKey={'price_change_percentage'}
                 sortType={'ascending'}
                 title={'Top Losers'}

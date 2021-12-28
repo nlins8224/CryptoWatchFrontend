@@ -2,6 +2,7 @@ import IAsset from '../../interfaces/Asset';
 import { Table } from 'antd';
 import React, { useEffect, useState } from 'react';
 import Text from "antd/es/typography/Text";
+import {v4 as uuidv4} from "uuid";
 
 const LiveCoinsSortedBy = (props: {
   assets: IAsset[];
@@ -13,25 +14,21 @@ const LiveCoinsSortedBy = (props: {
 }): JSX.Element => {
   const [assetArray, setAssetArray] = useState<IAsset[]>([]);
 
-  // const addKey = () => {
-  //   // ...
-  //   setAssetArray(assetArray with key)
-  // }
-
   const prepareAssets = () => {
     if (!Array.isArray(props.assets) || !props.assets.length) {
       return;
     }
 
     const ELEMENTS_AMOUNT = 8
+    const assetsWithKey = props.assets.map((obj) => ({ ...obj, key: uuidv4() }))
 
     if (props.sortType === 'ascending') {
-      const sortedBy: Array<IAsset> = props.assets.sort(
+      const sortedBy: Array<IAsset> = assetsWithKey.sort(
         (a: IAsset, b: IAsset) => a[props.sortKey] - b[props.sortKey],
       ).slice(0, ELEMENTS_AMOUNT);
       setAssetArray(sortedBy);
     } else if (props.sortType === 'descending') {
-      const sortedBy: Array<IAsset> = props.assets.sort(
+      const sortedBy: Array<IAsset> = assetsWithKey.sort(
         (a: IAsset, b: IAsset) => b[props.sortKey] - a[props.sortKey],
       ).slice(0, ELEMENTS_AMOUNT);
       setAssetArray(sortedBy);
@@ -39,13 +36,8 @@ const LiveCoinsSortedBy = (props: {
   };
 
   useEffect(() => {
-    //addKey();
     prepareAssets();
-  }, []);
-
-  // useEffect( () => {
-  //   console.log(assetArray)
-  // }, [assetArray])
+  }, [props]);
 
   return (
     <>
