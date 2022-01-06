@@ -6,7 +6,7 @@ import 'antd/dist/antd.less';
 import { LiveCoinsSortedBy } from './LiveCoinsSortedBy';
 import {Col, Row} from 'antd';
 import {columnsVolume, columnsPrice, columns} from './config/columns'
-
+import {getAssets} from "../getAssets";
 
 const db = getDatabase();
 const liveCoinsRef = ref(db, '/live-coins');
@@ -20,12 +20,6 @@ const LiveCoinsReceiver: () => JSX.Element = () => {
       assets = parseAssets(assets);
       setAssetArray(assets);
     });
-  };
-
-  const getAssets = (assetMap: Map<string, IAsset> | undefined) => {
-    const assets: IAsset[] = [];
-    assetMap?.forEach((value: IAsset) => assets.push(value));
-    return assets;
   };
 
   const parseAssets = (assetArray: IAsset[]): IAsset[] => {
