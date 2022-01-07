@@ -1,0 +1,36 @@
+.chart-tabs {
+  height: 15vh;
+
+  .ant-tabs-top{
+    border: none;
+    margin: 0;
+    position: fixed;
+    width: 65%;
+    left: 15%;
+    z-index: 3;
+  }
+  .ant-tabs-tab > .ant-tabs-btn {
+    text-transform: uppercase;
+    text-align: center;
+    width: 16.8%;
+    margin: 0;
+    font-size: 15px;
+    letter-spacing: 1px;
+    &:hover {
+      color: lightblue;
+    }
+  }
+
+  .ant-tabs-tab-active {
+    background: #006C60 !important;
+  }
+
+  .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab {
+    border: none;
+    background-color: transparent;
+  }
+
+  .ant-tabs-top > .ant-tabs-nav::before {
+    border: none;
+  }
+}
