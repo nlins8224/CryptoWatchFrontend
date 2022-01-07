@@ -18,7 +18,7 @@ const Navbar = () => {
               >
                   <TabPane tab='Home' key=''/>
                   <TabPane tab='Quotes' key='quote' />
-                  <TabPane tab='Charts' key='chart' />
+                  <TabPane tab='Charts' key='chartView' />
                   <TabPane tab='About' key='about' />
               </Tabs>
           </div>

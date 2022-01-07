@@ -16,7 +16,7 @@ export const Routing = () => {
                     <Route path="/quote" element={<QuotePage />} />
                     <Route path="/quote/:id" element={<ChartReceiver />} />
                     <Route path="/about" element={<AboutPage />} />
-                    <Route path="/chart" element={<ChartPage />} />
+                    <Route path="/chartView" element={<ChartPage />} />
                 </Routes>
             </Router>
         )

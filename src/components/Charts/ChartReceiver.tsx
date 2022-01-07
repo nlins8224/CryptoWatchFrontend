@@ -2,6 +2,7 @@ import {useLocation} from "react-router-dom";
 import {useGetHistoricalSymbolData} from "./useGetHistoricalSymbolData";
 import {cutByTimestamp, getMidnightXDaysAgoUTC, getMidnightXYearsAgoUTC} from "../../timeUtils";
 import {Tabs} from "antd";
+import ChartView from "./ChartView";
 const { TabPane } = Tabs;
 
 export const ChartReceiver = () => {
@@ -37,27 +38,8 @@ export const ChartReceiver = () => {
     console.log(fiveYearsAssets)
 
     return (
-        <div className='chart-tabs'>
-            <Tabs defaultActiveKey="1" type="card">
-                <TabPane tab="1D" key="1">
-                    Content of card tab 1
-                </TabPane>
-                <TabPane tab="5D" key="2">
-                    Content of card tab 2
-                </TabPane>
-                <TabPane tab="1M" key="3">
-                    Content of card tab 3
-                </TabPane>
-                <TabPane tab="3M" key="4">
-                    Content of card tab 4
-                </TabPane>
-                <TabPane tab="1Y" key="5">
-                    Content of card tab 5
-                </TabPane>
-                <TabPane tab="5Y" key="6">
-                    Content of card tab 6
-                </TabPane>
-            </Tabs>
+        <div>
+            <ChartView />
         </div>
     )
 }
