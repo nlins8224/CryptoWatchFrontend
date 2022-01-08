@@ -21,7 +21,6 @@ export const Chart = (props: {seriesData: number[][]}) => {
     }
 
     useEffect(() => {
-        console.log(props.seriesData)
         updateSeries(props.seriesData)
     }, [props.seriesData])
 
