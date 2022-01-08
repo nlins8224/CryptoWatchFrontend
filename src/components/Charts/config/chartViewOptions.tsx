@@ -1,5 +1,3 @@
-import priceData from "../data/btcdata.json";
-
 const primaryColor = "#00C7B0"
 const secondaryColor = "#85B5FA"
 const gridLineColor = "#273341"
@@ -24,7 +22,7 @@ export const chartViewOptions: any = {
 
     xAxis: {
         x: 10,
-        type: "date",
+        type: "data",
         color: secondaryColor,
         gridLineWidth: 0.5,
         gridLineColor: gridLineColor,
@@ -87,75 +85,84 @@ export const chartViewOptions: any = {
     },
 
     rangeSelector: {
-        buttonTheme: {
-            fill: 'none',
-            stroke: 'none',
-            'stroke-width': 0,
-            r: 8,
-            style: {
-                color: secondaryColor,
-                fontWeight: 'bold'
-            },
-            states: {
-                hover: {
-                    style: {
-                        color: 'lightblue',
-                    },
-                    fill: 'none'
-                },
-                select: {
-                    fill: 'none',
-                    style: {
-                        color: 'white'
-                    }
-                }
-            }
-        },
-        inputBoxBorderColor: 'gray',
-        inputBoxWidth: 120,
-        inputBoxHeight: 18,
-        inputStyle: {
-            color: secondaryColor,
-            fontWeight: 'bold'
-        },
-        labelStyle: {
-            color: 'silver',
-            fontWeight: 'bold'
-        },
-        buttons: [
-            {
-                type: "day",
-                count: 1,
-                text: "1D"
-            },
-            {
-                type: "day",
-                count: 5,
-                text: "5D"
-            },
-            {
-                type: "month",
-                count: 1,
-                text: "1M"
-            },
-            {
-                type: "month",
-                count: 3,
-                text: "3M"
-            },
-            {
-                type: "all",
-                text: "ALL"
-            }
-        ],
-        selected: 1
+        enabled: false
     },
+
+    // rangeSelector: {
+    //     buttonTheme: {
+    //         fill: 'none',
+    //         stroke: 'none',
+    //         'stroke-width': 0,
+    //         r: 8,
+    //         style: {
+    //             color: secondaryColor,
+    //             fontWeight: 'bold'
+    //         },
+    //         states: {
+    //             hover: {
+    //                 style: {
+    //                     color: 'lightblue',
+    //                 },
+    //                 fill: 'none'
+    //             },
+    //             select: {
+    //                 fill: 'none',
+    //                 style: {
+    //                     color: 'white'
+    //                 }
+    //             }
+    //         }
+    //     },
+    //     inputBoxBorderColor: 'gray',
+    //     inputBoxWidth: 120,
+    //     inputBoxHeight: 18,
+    //     inputStyle: {
+    //         color: secondaryColor,
+    //         fontWeight: 'bold'
+    //     },
+    //     labelStyle: {
+    //         color: 'silver',
+    //         fontWeight: 'bold'
+    //     },
+    //     buttons: [
+    //         {
+    //             type: "day",
+    //             count: 1,
+    //             text: "1D"
+    //         },
+    //         {
+    //             type: "day",
+    //             count: 5,
+    //             text: "5D"
+    //         },
+    //         {
+    //             type: "month",
+    //             count: 1,
+    //             text: "1M"
+    //         },
+    //         {
+    //             type: "year",
+    //             count: 1,
+    //             text: "1Y"
+    //         },
+    //         {
+    //             type: "year",
+    //             count: 5,
+    //             text: "5Y"
+    //         },
+    //         {
+    //             type: "all",
+    //             text: "ALL"
+    //         }
+    //     ],
+    //     selected: 1
+    // },
     series: [
         {
             name: "Price",
             type: "spline",
+            data: [[],[]],
 
-            data: priceData,
             tooltip: {
                 valueDecimals: 2
             },
