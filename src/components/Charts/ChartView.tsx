@@ -22,7 +22,6 @@ export const ChartView = () => {
     const thirtyDaysAgo = getMidnightXDaysAgoUTC(30)
     const threeMonthsAgo = getMidnightXDaysAgoUTC(90)
     const oneYearAgo = getMidnightXYearsAgoUTC(1)
-    const threeYearsAgo = getMidnightXYearsAgoUTC(3)
     const fiveYearsAgo = getMidnightXYearsAgoUTC(5)
 
     const dailyAssets = chartParser(cutByTimestamp(midnightUTC, allOneMinuteAssets.data))

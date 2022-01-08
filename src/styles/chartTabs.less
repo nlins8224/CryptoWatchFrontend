@@ -1,6 +1,11 @@
 .chart-tabs {
-  height: 15vh;
+  height: 10vh;
 
+  .ant-tabs-nav-wrap {
+    z-index: 3;
+    align-content: flex-start;
+    background: #212121;
+  }
   .ant-tabs-top{
     border: none;
     margin: 0;
@@ -9,7 +14,7 @@
     left: 15%;
     z-index: 3;
   }
-  .ant-tabs-tab > .ant-tabs-btn {
+  .ant-tabs-tab .ant-tabs-btn {
     text-transform: uppercase;
     text-align: center;
     width: 16.8%;
@@ -21,16 +26,21 @@
     }
   }
 
-  .ant-tabs-tab-active {
-    background: #006C60 !important;
+  .ant-tabs-tab-btn {
+    color: #85B5FA;
   }
 
   .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab {
     border: none;
     background-color: transparent;
+    margin: 0;
   }
 
   .ant-tabs-top > .ant-tabs-nav::before {
     border: none;
+  }
+
+  .ant-tabs-top > .ant-tabs-nav  {
+    margin: 0;
   }
 }

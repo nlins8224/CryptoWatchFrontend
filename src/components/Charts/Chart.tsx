@@ -10,7 +10,6 @@ export const Chart = (props: {seriesData: number[][]}) => {
         if (!Array.isArray(seriesData) || !seriesData.length) {
             return false
         }
-        console.log("HI")
         setChartOptions({
             series: [
                 {

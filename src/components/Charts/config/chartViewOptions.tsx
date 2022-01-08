@@ -61,7 +61,8 @@ export const chartViewOptions: any = {
     chart: {
         backgroundColor: backgroundColor,
         height: 600,
-        width: 1000
+        width: 1204.44,
+        spacing: [5, 15, 15, 15]
     },
     axes: {
       color: secondaryColor,
