@@ -4,7 +4,7 @@ import QuotePage from "../../pages/QuotePage";
 import HomePage from "../../pages/HomePage";
 import AboutPage from "../../pages/AboutPage";
 import ChartPage from "../../pages/ChartPage";
-import Navbar from "../Navbar";
+import Navbar from "../Navbar/Navbar";
 import QuoteChartPage from "../../pages/QuoteChartPage";
 
 export const Routing = () => {

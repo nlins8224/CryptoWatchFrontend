@@ -25,6 +25,8 @@ module.exports = {
               '@table-border-color': componentSecondaryBackground,
               '@tabs-card-head-background': componentSecondaryBackground,
               '@tabs-card-active-color': componentPrimaryBackground,
+              '@page-header-ghost-bg': componentPrimaryBackground
+
             },
             javascriptEnabled: true,
           },
