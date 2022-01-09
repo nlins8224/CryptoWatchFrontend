@@ -1,7 +1,7 @@
 const primaryColor = "#00C7B0"
 const secondaryColor = "#85B5FA"
 const gridLineColor = "#273341"
-const backgroundColor = "#212121"
+const backgroundColor = "#15191C"
 
 export const chartViewOptions: any = {
     yAxis: {
