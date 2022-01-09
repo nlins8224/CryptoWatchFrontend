@@ -7,7 +7,7 @@ import {Col, Row} from 'antd';
 import {columnsVolume, columnsPrice, columns} from './config/columns'
 import {useAssetStatusListener} from "../useAssetStatusListener";
 
-const LiveCoinsReceiver: () => JSX.Element = () => {
+const LiveCoinsView: () => JSX.Element = () => {
     const assetArray = useAssetStatusListener()
 
     return (
@@ -51,4 +51,4 @@ const LiveCoinsReceiver: () => JSX.Element = () => {
     );
 }
 
-export { LiveCoinsReceiver };
+export { LiveCoinsView };
