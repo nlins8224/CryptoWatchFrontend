@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { getDatabase, onValue, ref } from 'firebase/database';
-import { LiveCoinsTable } from './LiveCoinsTable';
+import { LiveAssetsTable } from './LiveAssetsTable';
 import 'antd/dist/antd.less';
-import { LiveCoinsSortedBy } from './LiveCoinsSortedBy';
+import { LiveAssetsSortedBy } from './LiveAssetsSortedBy';
 import {Col, Row} from 'antd';
 import {columnsVolume, columnsPrice, columns} from './config/columns'
-import {useAssetStatusListener} from "../useAssetStatusListener";
+import {useLiveAssetsStatusListener} from "./useLiveAssetsStatusListener";
 
-const LiveCoinsView: () => JSX.Element = () => {
-    const assetArray = useAssetStatusListener()
+const db = getDatabase();
+const liveCoinsRef = ref(db, '/live-coins');
+const LiveAssetsView: () => JSX.Element = () => {
+    const assetArray = useLiveAssetsStatusListener(liveCoinsRef)
 
     return (
         <>
             <Row align="middle" gutter={[24, 24]}>
                 <Col xs={{ span: 4, offset: 3 }} lg={{ span: 5, offset: 4 }}>
-                    <LiveCoinsSortedBy
+                    <LiveAssetsSortedBy
                         id={'1'}
                         assets={assetArray}
                         sortKey={'total_volume'}
@@ -24,7 +26,7 @@ const LiveCoinsView: () => JSX.Element = () => {
                     />
                 </Col>
                 <Col xs={{ span: 4, offset: 0 }} lg={{ span: 5, offset: 0 }}>
-                    <LiveCoinsSortedBy
+                    <LiveAssetsSortedBy
                         id={'2'}
                         assets={assetArray}
                         sortKey={'price_change_percentage'}
@@ -34,7 +36,7 @@ const LiveCoinsView: () => JSX.Element = () => {
                     />
                 </Col>
                 <Col xs={{ span: 4, offset: 0 }} lg={{ span: 5, offset: 0 }}>
-                    <LiveCoinsSortedBy
+                    <LiveAssetsSortedBy
                         id={'3'}
                         assets={assetArray}
                         sortKey={'price_change_percentage'}
@@ -44,11 +46,11 @@ const LiveCoinsView: () => JSX.Element = () => {
                     />
                 </Col>
                 <Col xs={{ span: 12, offset: 3 }} lg={{ span: 15, offset: 4 }}>
-                    <LiveCoinsTable assets={assetArray} title={'Cryptocurrency'} columns={columns} />
+                    <LiveAssetsTable assets={assetArray} title={'Cryptocurrency'} columns={columns} />
                 </Col>
             </Row>
         </>
     );
 }
 
-export { LiveCoinsView };
+export { LiveAssetsView };

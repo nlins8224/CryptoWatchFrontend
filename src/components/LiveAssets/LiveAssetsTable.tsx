@@ -4,10 +4,8 @@ import IAsset from '../../interfaces/Asset';
 import 'antd/dist/antd.css';
 import Text from "antd/es/typography/Text";
 import {v4 as uuidv4} from "uuid";
-import {Link} from "react-router-dom";
-import IRenderText from "../../interfaces/RenderText";
 
-const LiveCoinsTable = (props: { assets: Array<IAsset>, title: string, columns: any }): JSX.Element => {
+const LiveAssetsTable = (props: { assets: Array<IAsset>, title: string, columns: any }): JSX.Element => {
   const [assetArray, setAssetArray] = useState<IAsset[]>([]);
 
   const prepareAssets = () => {
@@ -29,4 +27,4 @@ const LiveCoinsTable = (props: { assets: Array<IAsset>, title: string, columns: 
   );
 }
 
-export { LiveCoinsTable }
+export { LiveAssetsTable }

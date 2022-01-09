@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { getDatabase, onValue, ref } from 'firebase/database';
-import IAsset from '../interfaces/Asset';
-import {getAssets} from "./getAssets";
-import {parseAssets} from "./parseAssets";
-import {render} from "react-dom";
+import IAsset from '../../interfaces/Asset';
+import {getAssets} from "../getAssets";
+import {parseAssets} from "../parseAssets";
 
-const db = getDatabase();
-const liveCoinsRef = ref(db, '/live-coins');
-export const useAssetStatusListener = () => {
+
+export const useLiveAssetsStatusListener = (ref: any) => {
     const [assetArray, setAssetArray] = useState<IAsset[]>([]);
 
     const setAssetStatusListener = (ref: any) => {
@@ -20,7 +18,7 @@ export const useAssetStatusListener = () => {
     };
 
     useEffect(() => {
-        setAssetStatusListener(liveCoinsRef);
+        setAssetStatusListener(ref);
     }, [])
 
     return assetArray

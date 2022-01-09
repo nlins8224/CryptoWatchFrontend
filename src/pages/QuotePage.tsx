@@ -1,11 +1,11 @@
 import React from 'react';
 import '../styles/App.less';
 import '../database/firebase';
-import {LiveCoinsView} from "../components/LiveCoins/LiveCoinsView";
+import {LiveAssetsView} from "../components/LiveAssets/LiveAssetsView";
 
 const QuotePage = () => {
     return (
-        <LiveCoinsView />
+        <LiveAssetsView />
     );
 }
 

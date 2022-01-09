@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Text from "antd/es/typography/Text";
 import {v4 as uuidv4} from "uuid";
 
-const LiveCoinsSortedBy = (props: {
+const LiveAssetsSortedBy = (props: {
   assets: IAsset[];
   sortKey: 'total_volume' | 'price_change_percentage';
   sortType: 'ascending' | 'descending';
@@ -55,4 +55,4 @@ const LiveCoinsSortedBy = (props: {
   );
 };
 
-export { LiveCoinsSortedBy };
+export { LiveAssetsSortedBy };
