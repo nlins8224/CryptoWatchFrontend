@@ -8,7 +8,7 @@ import SubscribeButton from "../components/Watchlist/SubscribeButton";
 const QuoteChartPage = () => {
     return (
         <div className="quote-chart-page">
-            <SubscribeButton/>
+            <SubscribeButton />
             <Row>
                 <Col xs={24} xl={16}>
                     <AssetInfoPanel/>

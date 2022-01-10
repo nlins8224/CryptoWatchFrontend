@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/App.less';
+import {WatchlistTableView} from "../components/Watchlist/WatchlistTableView";
 
 const WatchlistPage = () => {
     return (
@@ -7,6 +8,7 @@ const WatchlistPage = () => {
             <p>
                 This is the WATCHLIST page
             </p>
+            <WatchlistTableView/>
         </div>
 
     );

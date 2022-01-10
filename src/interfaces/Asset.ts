@@ -10,7 +10,7 @@ export default interface IAsset {
   price: number;
   price_change: number;
   price_change_percentage: number;
-  symbol?: string;
+  symbol: string;
   total_volume: number;
   key?: string;
 }
