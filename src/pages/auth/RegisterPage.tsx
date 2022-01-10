@@ -87,7 +87,7 @@ const RegisterPage: React.FunctionComponent = props => {
                         Sign Up
                     </Button>
                     <Button type="primary">
-                        <Link to='/login'>Login</Link>
+                        <Link to='/login'>Sign In</Link>
                     </Button>
                 </Space>
             </Form.Item>

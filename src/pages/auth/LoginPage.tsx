@@ -65,7 +65,7 @@ const LoginPage: React.FunctionComponent = () => {
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                     <Space>
                         <Button type="primary" htmlType="submit" disabled={authentication}>
-                            Login
+                            Sign In
                         </Button>
                         <Button type="primary" disabled={authentication}>
                             <Link to='/auth'>Sign Up</Link>
