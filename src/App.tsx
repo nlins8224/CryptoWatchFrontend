@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/App.less';
-import './database/firebase';
+import './firebase/firebase';
 import {Routing} from "./components/Routing/Routing";
 
 const App = () => {

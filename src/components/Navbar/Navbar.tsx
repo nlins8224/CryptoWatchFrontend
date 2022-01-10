@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import '../../styles/App.less';
-import '../../database/firebase';
+import '../../firebase/firebase';
 import {Tabs} from "antd";
 import {useNavigate} from "react-router-dom";
+import LogoutPage from "../../pages/auth/LogoutPage";
 
 const { TabPane } = Tabs
 const Navbar = () => {
@@ -18,9 +19,10 @@ const Navbar = () => {
               >
                   <TabPane tab='Home' key=''/>
                   <TabPane tab='Quotes' key='quote' />
-                  <TabPane tab='Charts' key='chartView' />
+                  <TabPane tab='Watchlist' key='watchlist' />
                   <TabPane tab='About' key='about' />
               </Tabs>
+              <LogoutPage/>
           </div>
       </>
     );
