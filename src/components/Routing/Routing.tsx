@@ -18,6 +18,7 @@ export const Routing = () => {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/quote" element={<QuotePage />} />
                     <Route path="/quote/:id" element={<QuoteChartPage />} />
+                    <Route path="/watchlist/:id" element={<QuoteChartPage />} />
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/auth" element={<RegisterPage />} />
                     <Route path="/login" element={<LoginPage />} />
