@@ -4,6 +4,7 @@ import {Navigate} from "react-router-dom";
 
 const RequireAuth = (props: {children: any, redirectTo: string}) => {
 
+    console.log(auth.currentUser)
     return auth.currentUser? props.children : <Navigate to={props.redirectTo}/>
 
 }

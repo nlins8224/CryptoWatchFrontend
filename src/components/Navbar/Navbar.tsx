@@ -3,7 +3,7 @@ import '../../styles/App.less';
 import '../../firebase/firebase';
 import {Col, Row, Space, Tabs} from "antd";
 import {useNavigate} from "react-router-dom";
-import LogoutPage from "../../pages/auth/LogoutPage";
+import LogoutButton from "./LogoutButton";
 
 const { TabPane } = Tabs
 const Navbar = () => {
@@ -16,8 +16,8 @@ const Navbar = () => {
               <Row>
                   <Col offset={20}>
                       <Space>
-                          <LogoutPage/>
-                          <LogoutPage/>
+                          <LogoutButton/>
+                          <LogoutButton/>
                       </Space>
                   </Col>
                   <Col>
