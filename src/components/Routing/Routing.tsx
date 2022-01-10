@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import QuotePage from "../../pages/QuotePage";
 import HomePage from "../../pages/HomePage";
 import AboutPage from "../../pages/AboutPage";
-import ChartPage from "../../pages/ChartPage";
+import WatchlistPage from "../../pages/WatchlistPage";
 import Navbar from "../Navbar/Navbar";
 import QuoteChartPage from "../../pages/QuoteChartPage";
 import RegisterPage from "../../pages/auth/RegisterPage";
@@ -24,7 +24,7 @@ export const Routing = () => {
                     <Route path="/watchlist"
                            element={
                                 <RequireAuth redirectTo="/login">
-                                    <ChartPage />
+                                    <WatchlistPage />
                                 </RequireAuth>
                            } />
 
