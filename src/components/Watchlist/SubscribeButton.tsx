@@ -4,7 +4,7 @@ import {useLocation} from "react-router-dom";
 import {getDatabase, ref, update} from "@firebase/database";
 import {auth} from '../../firebase/firebase'
 
-const SubscribeButton: React.FunctionComponent = props => {
+const SubscribeButton: React.FunctionComponent = () => {
     const location = useLocation()
     const symbol = location.pathname.split('/').pop()
 
@@ -25,7 +25,7 @@ const SubscribeButton: React.FunctionComponent = props => {
 
     }
 
-    return <Button onClick={() => subscribe(symbol)}>Add to Watchlist</Button>
+    return <Button type="primary" onClick={() => subscribe(symbol)}>Add to Watchlist</Button>
 }
 
 export default SubscribeButton

@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {auth} from '../../firebase/firebase'
 import {Button} from "antd";
 
-const LogoutPage: React.FunctionComponent = props => {
+const LogoutPage: React.FunctionComponent = () => {
 
     const navigation = useNavigate()
 
@@ -14,7 +14,7 @@ const LogoutPage: React.FunctionComponent = props => {
     }
 
     return (
-        <Button onClick={() => logout()}>Logout</Button>
+        <Button type="primary" onClick={() => logout()}>Logout</Button>
     )
 }
 

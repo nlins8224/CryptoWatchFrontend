@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Link, useNavigate} from 'react-router-dom'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import {Button, Form, Input} from "antd";
+import {Button, Form, Input, Space} from "antd";
 
 const RegisterPage: React.FunctionComponent = props => {
     const [register, setRegister] = useState<boolean>(false)
@@ -46,7 +46,7 @@ const RegisterPage: React.FunctionComponent = props => {
     };
 
     return (
-        <div>
+        <div className="auth">
             <Form
             name="basic"
             labelCol={{ span: 8 }}
@@ -82,14 +82,16 @@ const RegisterPage: React.FunctionComponent = props => {
             </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                <Button type="primary" htmlType="submit">
-                    Sign Up
-                </Button>
+                <Space>
+                    <Button type="primary" htmlType="submit">
+                        Sign Up
+                    </Button>
+                    <Button type="primary">
+                        <Link to='/login'>Login</Link>
+                    </Button>
+                </Space>
             </Form.Item>
         </Form>
-            <small>
-                <p className='m-1 text-center'>Already have an account? <Link to='/login'>Login</Link></p>
-            </small>
         </div>
 
     );
