@@ -23,6 +23,7 @@ module.exports = {
               '@table-header-color': secondaryText,
               '@table-row-hover-bg': componentSecondaryBackground,
               '@table-border-color': componentSecondaryBackground,
+              '@table-body-sort-bg': componentPrimaryBackground,
               '@tabs-card-head-background': componentSecondaryBackground,
               '@tabs-card-active-color': componentPrimaryBackground,
               '@page-header-ghost-bg': componentPrimaryBackground
