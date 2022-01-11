@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import {Button, Form, Input} from "antd";
+import {Button, Form, Input, Space} from "antd";
 
-const LoginPage: React.FunctionComponent = props => {
+const LoginPage: React.FunctionComponent = () => {
     const [authentication, setAuthentication] = useState<boolean>(false)
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
@@ -35,7 +35,7 @@ const LoginPage: React.FunctionComponent = props => {
     };
 
     return (
-        <div>
+        <div className="auth">
             <Form
                 name="basic"
                 labelCol={{ span: 8 }}
@@ -63,14 +63,16 @@ const LoginPage: React.FunctionComponent = props => {
                 </Form.Item>
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                    <Button type="primary" htmlType="submit" disabled={authentication}>
-                        Login
-                    </Button>
+                    <Space>
+                        <Button type="primary" htmlType="submit" disabled={authentication}>
+                            Sign In
+                        </Button>
+                        <Button type="primary" disabled={authentication}>
+                            <Link to='/auth'>Sign Up</Link>
+                        </Button>
+                    </Space>
                 </Form.Item>
             </Form>
-            <small>
-                <p className='m-1 text-center'>Don't have an account? <Link to='/auth'>Sign Up</Link></p>
-            </small>
         </div>
 
     );

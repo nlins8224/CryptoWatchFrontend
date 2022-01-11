@@ -6,6 +6,7 @@ import {getDatabase, ref} from "@firebase/database";
 import {useWatchlistData} from "./useWatchlistData";
 import {columns} from "./config/columns";
 import {LiveAssetsTable} from "../LiveAssets/LiveAssetsTable";
+import {Col, Row} from "antd";
 
 const db = getDatabase();
 const liveCoinsRef = ref(db, '/live-coins');
@@ -25,7 +26,11 @@ const WatchlistTableView: () => JSX.Element = () => {
 
     return (
         <div>
-            <LiveAssetsTable assets={filteredAssets} title={'Watchlist'} columns={columns} />
+            <Row align="middle" >
+                <Col xs={{ span: 12, offset: 3 }} lg={{ span: 15, offset: 4 }}>
+                    <LiveAssetsTable assets={filteredAssets} title={'Watchlist'} columns={columns} />
+                </Col>
+            </Row>
         </div>
     )
 }

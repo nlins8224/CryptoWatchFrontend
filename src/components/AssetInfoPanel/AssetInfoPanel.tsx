@@ -1,5 +1,6 @@
 import {Descriptions, PageHeader} from "antd";
 import {useLiveAssetStatusListener} from "./useLiveAssetStatusListener";
+import SubscribeButton from "./SubscribeButton";
 
 export const AssetInfoPanel = () => {
     const liveAsset = useLiveAssetStatusListener()
@@ -11,6 +12,9 @@ export const AssetInfoPanel = () => {
                 onBack={() => window.history.back()}
                 title={liveAsset?.symbol}
                 subTitle={liveAsset?.name}
+                extra={[
+                    <SubscribeButton/>
+                ]}
             >
                 <Descriptions size="small" column={3}>
                     <Descriptions.Item label="Price">{liveAsset?.price}</Descriptions.Item>
