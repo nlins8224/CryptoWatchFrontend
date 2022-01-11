@@ -1,6 +1,6 @@
 import {Descriptions, PageHeader} from "antd";
 import {useLiveAssetStatusListener} from "./useLiveAssetStatusListener";
-import SubscribeButton from "../Watchlist/SubscribeButton";
+import SubscribeButton from "./SubscribeButton";
 
 export const AssetInfoPanel = () => {
     const liveAsset = useLiveAssetStatusListener()
