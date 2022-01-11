@@ -1,13 +1,15 @@
-import IRenderText from "../../../interfaces/RenderText";
-import {Link} from "react-router-dom";
-import React from "react";
+import IRenderText from '../../../interfaces/RenderText';
+import { Link } from 'react-router-dom';
+import React from 'react';
 
 export const columnsVolume: any = [
     {
         title: 'Symbol',
         dataIndex: 'symbol',
         key: 'symbol',
-        render: (text: IRenderText, record: { symbol: string; }) => <Link to={record.symbol}>{text}</Link>
+        render: (text: IRenderText, record: { symbol: string }) => (
+            <Link to={record.symbol}>{text}</Link>
+        ),
     },
     {
         title: 'Volume',
@@ -31,7 +33,9 @@ export const columnsPrice: any = [
         title: 'Symbol',
         dataIndex: 'symbol',
         key: 'symbol',
-        render: (text: IRenderText, record: { symbol: string; }) => <Link to={record.symbol}>{text}</Link>
+        render: (text: IRenderText, record: { symbol: string }) => (
+            <Link to={record.symbol}>{text}</Link>
+        ),
     },
     {
         title: 'Price',
@@ -55,7 +59,9 @@ export const columns: any = [
         title: 'Symbol',
         dataIndex: 'symbol',
         key: 'symbol',
-        render: (text: IRenderText, record: { symbol: string; }) => <Link to={record.symbol}>{text}</Link>
+        render: (text: IRenderText, record: { symbol: string }) => (
+            <Link to={record.symbol}>{text}</Link>
+        ),
     },
     {
         title: 'Name',
@@ -89,5 +95,4 @@ export const columns: any = [
     },
 ];
 
-export default {columns, columnsPrice, columnsVolume}
-
+export default { columns, columnsPrice, columnsVolume };

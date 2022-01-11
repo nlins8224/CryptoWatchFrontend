@@ -3,14 +3,14 @@ import { getDatabase, onValue, ref } from 'firebase/database';
 import { LiveAssetsTable } from './LiveAssetsTable';
 import 'antd/dist/antd.less';
 import { LiveAssetsSortedBy } from './LiveAssetsSortedBy';
-import {Col, Row} from 'antd';
-import {columnsVolume, columnsPrice, columns} from './config/columns'
-import {useLiveAssetsStatusListener} from "./useLiveAssetsStatusListener";
+import { Col, Row } from 'antd';
+import { columnsVolume, columnsPrice, columns } from './config/columns';
+import { useLiveAssetsStatusListener } from './useLiveAssetsStatusListener';
 
 const db = getDatabase();
 const liveCoinsRef = ref(db, '/live-coins');
 const LiveAssetsView: () => JSX.Element = () => {
-    const assetArray = useLiveAssetsStatusListener(liveCoinsRef)
+    const assetArray = useLiveAssetsStatusListener(liveCoinsRef);
 
     return (
         <>
@@ -46,11 +46,15 @@ const LiveAssetsView: () => JSX.Element = () => {
                     />
                 </Col>
                 <Col xs={{ span: 12, offset: 3 }} lg={{ span: 15, offset: 4 }}>
-                    <LiveAssetsTable assets={assetArray} title={'Cryptocurrency'} columns={columns} />
+                    <LiveAssetsTable
+                        assets={assetArray}
+                        title={'Cryptocurrency'}
+                        columns={columns}
+                    />
                 </Col>
             </Row>
         </>
     );
-}
+};
 
 export { LiveAssetsView };
