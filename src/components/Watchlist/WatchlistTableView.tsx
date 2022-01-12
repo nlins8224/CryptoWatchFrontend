@@ -29,7 +29,7 @@ const WatchlistTableView: () => JSX.Element = () => {
     return (
         <div>
             <Row align="middle">
-                <Col xs={{ span: 12, offset: 3 }} lg={{ span: 15, offset: 4 }}>
+                <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={{ span: 15, offset: 4}}>
                     <LiveAssetsTable
                         assets={filteredAssets}
                         title={'Watchlist'}
