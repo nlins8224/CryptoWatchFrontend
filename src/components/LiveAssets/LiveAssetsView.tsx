@@ -14,7 +14,7 @@ const LiveAssetsView: () => JSX.Element = () => {
 
     return (
         <>
-            <Row align="middle" gutter={[24, 24]}>
+            <Row align="middle" gutter={[16, 16]}>
                 <Col
                     xs={24}
                     sm={24}
@@ -52,7 +52,7 @@ const LiveAssetsView: () => JSX.Element = () => {
                         columns={columnsPrice}
                     />
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={15}>
+                <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={{span: 15, offset: 4}}>
                     <LiveAssetsTable
                         assets={assetArray}
                         title={'Cryptocurrency'}
