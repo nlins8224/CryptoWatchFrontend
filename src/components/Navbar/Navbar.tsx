@@ -10,12 +10,11 @@ const Navbar = () => {
     return (
         <>
             <div className="menu">
-                        <MainMenu />
-                        <Space className="login" size={15}>
-                            <LoginLogoutSwitchButton />
-                            <AuthRedirectButton url="/auth" text="Sign Up" />
-                        </Space>
-
+                <MainMenu />
+                <Space className="login" size={15}>
+                    <LoginLogoutSwitchButton />
+                    <AuthRedirectButton url="/auth" text="Sign Up" />
+                </Space>
             </div>
         </>
     );
