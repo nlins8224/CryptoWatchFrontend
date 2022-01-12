@@ -15,7 +15,7 @@ const LiveAssetsView: () => JSX.Element = () => {
     return (
         <>
             <Row align="middle" gutter={[24, 24]}>
-                <Col xs={{ span: 4, offset: 3 }} lg={{ span: 5, offset: 4 }}>
+                <Col xs={24} sm={24} md={24} lg={8} xl={8} xxl={{ span: 5, offset: 4}}>
                     <LiveAssetsSortedBy
                         id={'1'}
                         assets={assetArray}
@@ -25,7 +25,7 @@ const LiveAssetsView: () => JSX.Element = () => {
                         columns={columnsVolume}
                     />
                 </Col>
-                <Col xs={{ span: 4, offset: 0 }} lg={{ span: 5, offset: 0 }}>
+                <Col xs={24} sm={24} md={24} lg={8} xl={8} xxl={{ span: 5 }}>
                     <LiveAssetsSortedBy
                         id={'2'}
                         assets={assetArray}
@@ -35,7 +35,7 @@ const LiveAssetsView: () => JSX.Element = () => {
                         columns={columnsPrice}
                     />
                 </Col>
-                <Col xs={{ span: 4, offset: 0 }} lg={{ span: 5, offset: 0 }}>
+                <Col xs={24} sm={24} md={24} lg={8} xl={8} xxl={{ span: 5 }}>
                     <LiveAssetsSortedBy
                         id={'3'}
                         assets={assetArray}
@@ -45,7 +45,7 @@ const LiveAssetsView: () => JSX.Element = () => {
                         columns={columnsPrice}
                     />
                 </Col>
-                <Col xs={{ span: 12, offset: 3 }} lg={{ span: 15, offset: 4 }}>
+                <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={{ span: 15, offset: 4}}>
                     <LiveAssetsTable
                         assets={assetArray}
                         title={'Cryptocurrency'}
