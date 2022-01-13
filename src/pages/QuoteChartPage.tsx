@@ -7,14 +7,14 @@ import { Col, Row } from 'antd';
 const QuoteChartPage = () => {
     return (
         <div>
-            <Row align="middle">
+            <Row justify="center">
                 <Col
                     xs={24}
                     sm={24}
                     md={24}
                     lg={24}
                     xl={24}
-                    xxl={{ span: 16, offset: 4 }}
+                    xxl={{ span: 18 }}
                 >
                     <AssetInfoPanel />
                 </Col>
@@ -24,7 +24,7 @@ const QuoteChartPage = () => {
                     md={24}
                     lg={24}
                     xl={24}
-                    xxl={{ span: 16, offset: 4 }}
+                    xxl={{ span: 18 }}
                 >
                     <ChartView />
                 </Col>

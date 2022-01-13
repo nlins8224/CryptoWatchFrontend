@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { getDatabase, onValue, ref } from 'firebase/database';
 import { LiveAssetsTable } from './LiveAssetsTable';
 import 'antd/dist/antd.less';
@@ -14,14 +14,14 @@ const LiveAssetsView: () => JSX.Element = () => {
 
     return (
         <>
-            <Row align="middle" gutter={[16, 16]}>
+            <Row gutter={[16, 32]} justify="center">
                 <Col
                     xs={24}
                     sm={24}
                     md={24}
                     lg={8}
                     xl={8}
-                    xxl={{ span: 5, offset: 4 }}
+                    xxl={{ span: 6 }}
                 >
                     <LiveAssetsSortedBy
                         id={'1'}
@@ -32,7 +32,7 @@ const LiveAssetsView: () => JSX.Element = () => {
                         columns={columnsVolume}
                     />
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={8} xxl={5}>
+                <Col xs={24} sm={24} md={24} lg={8} xl={8} xxl={6}>
                     <LiveAssetsSortedBy
                         id={'2'}
                         assets={assetArray}
@@ -42,7 +42,7 @@ const LiveAssetsView: () => JSX.Element = () => {
                         columns={columnsPrice}
                     />
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={8} xxl={5}>
+                <Col xs={24} sm={24} md={24} lg={8} xl={8} xxl={6}>
                     <LiveAssetsSortedBy
                         id={'3'}
                         assets={assetArray}
@@ -52,7 +52,7 @@ const LiveAssetsView: () => JSX.Element = () => {
                         columns={columnsPrice}
                     />
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={{span: 15, offset: 4}}>
+                <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={{ span: 18 }}>
                     <LiveAssetsTable
                         assets={assetArray}
                         title={'Cryptocurrency'}

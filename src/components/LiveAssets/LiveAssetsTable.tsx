@@ -26,7 +26,7 @@ const LiveAssetsTable = (props: {
 
     return (
         <>
-            <div className="live-coins-title">
+            <div>
                 <Text>{props.title}</Text>
                 <Table
                     dataSource={assetArray}

@@ -50,7 +50,7 @@ const LiveAssetsSortedBy = (props: {
 
     return (
         <>
-            <div className="live-coins-title" id={props.id}>
+            <div id={props.id}>
                 <Text>{props.title}</Text>
                 <Table
                     dataSource={assetArray}
