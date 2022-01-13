@@ -1,33 +1,33 @@
-import React, {useState} from "react";
-import {Link, useNavigate} from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import {Button, Form, Input, Space} from "antd";
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { Button, Form, Input, Space } from 'antd';
 
 const LoginPage: React.FunctionComponent = () => {
-    const [authentication, setAuthentication] = useState<boolean>(false)
-    const [email, setEmail] = useState<string>('')
-    const [password, setPassword] = useState<string>('')
-    const [error, setError] = useState<string>('')
+    const [authentication, setAuthentication] = useState<boolean>(false);
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [error, setError] = useState<string>('');
 
-    const navigation = useNavigate()
+    const navigation = useNavigate();
 
     const loginWithEmailAndPassword = () => {
-        if (error !== '') setError('')
+        if (error !== '') setError('');
 
-        setAuthentication(true)
-        const auth = getAuth()
+        setAuthentication(true);
+        const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
             .then(() => {
-                navigation('/')
+                navigation('/');
             })
             .catch(() => {
-                setAuthentication(false)
-                setError('Unable to sign in. Please try again later.')
+                setAuthentication(false);
+                setError('Unable to sign in. Please try again later.');
             });
-    }
+    };
 
     const onFinish = () => {
-        loginWithEmailAndPassword()
+        loginWithEmailAndPassword();
     };
 
     const onFinishFailed = (errorInfo: any) => {
@@ -48,34 +48,48 @@ const LoginPage: React.FunctionComponent = () => {
                 <Form.Item
                     label="Email"
                     name="email"
-                    rules={[{ required: true, message: 'Please input your username!' }]}
-
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your username!',
+                        },
+                    ]}
                 >
-                    <Input onChange={event => setEmail(event.target.value)} />
+                    <Input onChange={(event) => setEmail(event.target.value)} />
                 </Form.Item>
 
                 <Form.Item
                     label="Password"
                     name="password"
-                    rules={[{ required: true, message: 'Please input your password!' }]}
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your password!',
+                        },
+                    ]}
                 >
-                    <Input.Password onChange={event => setPassword(event.target.value)} />
+                    <Input.Password
+                        onChange={(event) => setPassword(event.target.value)}
+                    />
                 </Form.Item>
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                     <Space>
-                        <Button type="primary" htmlType="submit" disabled={authentication}>
+                        <Button
+                            type="primary"
+                            htmlType="submit"
+                            disabled={authentication}
+                        >
                             Sign In
                         </Button>
                         <Button type="primary" disabled={authentication}>
-                            <Link to='/auth'>Sign Up</Link>
+                            <Link to="/auth">Sign Up</Link>
                         </Button>
                     </Space>
                 </Form.Item>
             </Form>
         </div>
-
     );
-}
+};
 
 export default LoginPage;

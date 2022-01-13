@@ -1,36 +1,36 @@
-import React, {useEffect, useState} from "react";
-import HighchartsReact from "highcharts-react-official";
-import Highcharts from "highcharts/highstock";
-import {chartViewOptions} from "./config/chartViewOptions";
+import React, { useEffect, useState } from 'react';
+import HighchartsReact from 'highcharts-react-official';
+import Highcharts from 'highcharts/highstock';
+import { chartViewOptions } from './config/chartViewOptions';
 
-export const Chart = (props: {seriesData: number[][]}) => {
-    const [chartOptions, setChartOptions] = useState(chartViewOptions)
+export const Chart = (props: { seriesData: number[][] }) => {
+    const [chartOptions, setChartOptions] = useState(chartViewOptions);
 
     const updateSeries = (seriesData: number[][]): boolean => {
         if (!Array.isArray(seriesData) || !seriesData.length) {
-            return false
+            return false;
         }
         setChartOptions({
             series: [
                 {
-                    data: seriesData
+                    data: seriesData,
                 },
-            ]
-        })
-        return true
-    }
+            ],
+        });
+        return true;
+    };
 
     useEffect(() => {
-        updateSeries(props.seriesData)
-    }, [props.seriesData])
-
+        updateSeries(props.seriesData);
+    }, [props.seriesData]);
 
     return (
-        <div className="high-chart">
-            <HighchartsReact highcharts={Highcharts}
-                             constructorType={'stockChart'}
-                             options={chartOptions}/>
+        <div>
+            <HighchartsReact
+                highcharts={Highcharts}
+                constructorType={'stockChart'}
+                options={chartOptions}
+            />
         </div>
-    )
-}
-
+    );
+};

@@ -45,7 +45,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "prettier": "prettier --config .prettierrc 'src/**/*.tsx' --write",
     "eject": "craco eject"
   },
   "browserslist": {
