@@ -52,34 +52,22 @@ export const ChartView = () => {
             <div className="chart-tabs">
                 <Tabs defaultActiveKey="1" type="card">
                     <TabPane tab="1D" key="1">
-                        <div className="high-chart">
-                            <Chart seriesData={dailyAssets} />
-                        </div>
+                        <Chart seriesData={dailyAssets} />
                     </TabPane>
                     <TabPane tab="5D" key="2">
-                        <div className="high-chart">
-                            <Chart seriesData={fiveDaysAssets} />
-                        </div>
+                        <Chart seriesData={fiveDaysAssets} />
                     </TabPane>
                     <TabPane tab="1M" key="3">
-                        <div className="high-chart">
-                            <Chart seriesData={thirtyDaysAssets} />
-                        </div>
+                        <Chart seriesData={thirtyDaysAssets} />
                     </TabPane>
                     <TabPane tab="3M" key="4">
-                        <div className="high-chart">
-                            <Chart seriesData={threeMonthsAssets} />
-                        </div>
+                        <Chart seriesData={threeMonthsAssets} />
                     </TabPane>
                     <TabPane tab="1Y" key="5">
-                        <div className="high-chart">
-                            <Chart seriesData={oneYearAssets} />
-                        </div>
+                        <Chart seriesData={oneYearAssets} />
                     </TabPane>
                     <TabPane tab="5Y" key="6">
-                        <div className="high-chart">
-                            <Chart seriesData={fiveYearsAssets} />
-                        </div>
+                        <Chart seriesData={fiveYearsAssets} />
                     </TabPane>
                 </Tabs>
             </div>

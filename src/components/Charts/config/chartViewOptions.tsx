@@ -36,6 +36,7 @@ export const chartViewOptions: any = {
             },
         },
     },
+
     tooltip: {
         shared: true,
     },
@@ -60,9 +61,24 @@ export const chartViewOptions: any = {
     chart: {
         backgroundColor: backgroundColor,
         height: 600,
-        width: 1204.44,
         spacing: [5, 15, 15, 15],
     },
+
+    responsive: {
+        rules: [
+            {
+                condition: {
+                    maxWidth: 500,
+                },
+                chartOptions: {
+                    legend: {
+                        enabled: false,
+                    },
+                },
+            },
+        ],
+    },
+
     axes: {
         color: secondaryColor,
     },

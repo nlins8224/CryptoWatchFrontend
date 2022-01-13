@@ -25,7 +25,7 @@ export const Chart = (props: { seriesData: number[][] }) => {
     }, [props.seriesData]);
 
     return (
-        <div className="high-chart">
+        <div>
             <HighchartsReact
                 highcharts={Highcharts}
                 constructorType={'stockChart'}
