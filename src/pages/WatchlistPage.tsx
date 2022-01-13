@@ -1,11 +1,9 @@
 import React from 'react';
 import '../styles/App.less';
-import {WatchlistTableView} from "../components/Watchlist/WatchlistTableView";
+import { WatchlistTableView } from '../components/Watchlist/WatchlistTableView';
 
 const WatchlistPage = () => {
-    return (
-        <WatchlistTableView/>
-    );
-}
+    return <WatchlistTableView />;
+};
 
 export default WatchlistPage;

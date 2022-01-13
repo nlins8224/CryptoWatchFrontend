@@ -1,7 +1,7 @@
-const primaryColor = "#00C7B0"
-const secondaryColor = "#85B5FA"
-const gridLineColor = "#273341"
-const backgroundColor = "#15191C"
+const primaryColor = '#00C7B0';
+const secondaryColor = '#85B5FA';
+const gridLineColor = '#273341';
+const backgroundColor = '#15191C';
 
 export const chartViewOptions: any = {
     yAxis: {
@@ -11,18 +11,18 @@ export const chartViewOptions: any = {
             x: 10,
             style: {
                 color: secondaryColor,
-                position: "absolute"
+                position: 'absolute',
             },
-            align: "left"
+            align: 'left',
         },
         gridLineWidth: 0.5,
         gridLineColor: gridLineColor,
-        tickColor: secondaryColor
+        tickColor: secondaryColor,
     },
 
     xAxis: {
         x: 10,
-        type: "data",
+        type: 'data',
         color: secondaryColor,
         gridLineWidth: 0.5,
         gridLineColor: gridLineColor,
@@ -32,11 +32,11 @@ export const chartViewOptions: any = {
         labels: {
             style: {
                 color: secondaryColor,
-                position: "absolute"
+                position: 'absolute',
             },
-        }
-
+        },
     },
+
     tooltip: {
         shared: true,
     },
@@ -47,59 +47,73 @@ export const chartViewOptions: any = {
             labels: {
                 align: 'left',
                 style: {
-                    color: secondaryColor
+                    color: secondaryColor,
                 },
-            }
+            },
         },
     },
     plotOptions: {
         series: {
             showInNavigator: true,
-            gapSize: 6
-        }
+            gapSize: 6,
+        },
     },
     chart: {
         backgroundColor: backgroundColor,
         height: 600,
-        width: 1204.44,
-        spacing: [5, 15, 15, 15]
+        spacing: [5, 15, 15, 15],
     },
+
+    responsive: {
+        rules: [
+            {
+                condition: {
+                    maxWidth: 500,
+                },
+                chartOptions: {
+                    legend: {
+                        enabled: false,
+                    },
+                },
+            },
+        ],
+    },
+
     axes: {
-      color: secondaryColor,
+        color: secondaryColor,
     },
     legend: {
         itemStyle: {
             font: '9pt Trebuchet MS, Verdana, sans-serif',
-            color: 'black'
+            color: 'black',
         },
-        itemHoverStyle:{
-            color: 'gray'
-        }
+        itemHoverStyle: {
+            color: 'gray',
+        },
     },
 
     credits: {
-        enabled: false
+        enabled: false,
     },
 
     scrollbar: {
-        enabled: false
+        enabled: false,
     },
 
     rangeSelector: {
-        enabled: false
+        enabled: false,
     },
 
     series: [
         {
-            name: "Price",
-            type: "spline",
-            data: [[],[]],
+            name: 'Price',
+            type: 'spline',
+            data: [[], []],
 
             tooltip: {
-                valueDecimals: 2
+                valueDecimals: 2,
             },
-            color: primaryColor
+            color: primaryColor,
         },
-
-    ]
+    ],
 };

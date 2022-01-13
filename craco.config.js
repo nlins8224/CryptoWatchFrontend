@@ -33,8 +33,12 @@ module.exports = {
               '@page-header-ghost-bg': componentPrimaryBackground,
               '@label-color': secondaryText,
               '@label-required-color': secondaryColor,
-              'btn-primary-bg': buttonColor
-
+              'btn-primary-bg': buttonColor,
+              '@layout-body-background': componentSecondaryBackground,
+              '@layout-header-background': componentSecondaryBackground,
+              '@menu-bg': componentSecondaryBackground,
+              '@menu-dark-item-active-bg': componentSecondaryBackground,
+              '@menu-dark-highlight-color': primaryColor
             },
             javascriptEnabled: true,
           },
