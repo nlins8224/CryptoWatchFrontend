@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/App.less';
-import { ChartView } from '../components/Charts/ChartView';
+import { ChartManager } from '../components/Charts/ChartManager';
 import { AssetInfoPanel } from '../components/AssetInfoPanel/AssetInfoPanel';
 import { Col, Row } from 'antd';
 
@@ -26,7 +26,7 @@ const QuoteChartPage = () => {
                     xl={24}
                     xxl={{ span: 18 }}
                 >
-                    <ChartView />
+                    <ChartManager />
                 </Col>
             </Row>
         </div>
