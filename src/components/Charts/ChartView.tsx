@@ -1,26 +1,23 @@
-import { useLocation } from 'react-router-dom';
-import { useGetHistoricalSymbolData } from './useGetHistoricalSymbolData';
-import { chartParser } from './chartParser';
-import React from 'react';
-import { Chart } from './Chart';
-import { Tabs } from 'antd';
+import IAsset from '../../interfaces/Asset';
 import {
     cutByTimestamp,
     getMidnightXDaysAgoUTC,
     getMidnightXYearsAgoUTC,
 } from '../../timeUtils';
+import {
+    chartFilterByPrice,
+    chartFilterByMarketCap,
+} from './chartParser';
+import { Tabs } from 'antd';
+import { Chart } from './Chart';
+import React from 'react';
 const { TabPane } = Tabs;
 
-export const ChartView = () => {
-    const location = useLocation();
-    const symbol = location.pathname.split('/').pop();
-
-    const path1Min = `/historical-coins-1M/${symbol}`;
-    const path1Day = `/historical-coins-1D/${symbol}`;
-
-    const allOneMinuteAssets = useGetHistoricalSymbolData(path1Min);
-    const allOneDayAssets = useGetHistoricalSymbolData(path1Day);
-
+export const ChartView = (props: {
+    allOneMinuteAssets: IAsset[];
+    allOneDayAssets: IAsset[];
+    seriesName: 'Price' | 'Market Cap';
+}) => {
     const midnightUTC = getMidnightXDaysAgoUTC(0);
     const fiveDaysAgo = getMidnightXDaysAgoUTC(4);
     const thirtyDaysAgo = getMidnightXDaysAgoUTC(30);
@@ -28,49 +25,70 @@ export const ChartView = () => {
     const oneYearAgo = getMidnightXYearsAgoUTC(1);
     const fiveYearsAgo = getMidnightXYearsAgoUTC(5);
 
-    const dailyAssets = chartParser(
-        cutByTimestamp(midnightUTC, allOneMinuteAssets.data),
+    const parseMethod =
+        props.seriesName === 'Price'
+            ? chartFilterByPrice
+            : chartFilterByMarketCap;
+
+    const dailyAssets = parseMethod(
+        cutByTimestamp(midnightUTC, props.allOneMinuteAssets),
     );
-    const fiveDaysAssets = chartParser(
-        cutByTimestamp(fiveDaysAgo, allOneMinuteAssets.data),
+    const fiveDaysAssets = parseMethod(
+        cutByTimestamp(fiveDaysAgo, props.allOneMinuteAssets),
     );
-    const thirtyDaysAssets = chartParser(
-        cutByTimestamp(thirtyDaysAgo, allOneDayAssets.data),
+    const thirtyDaysAssets = parseMethod(
+        cutByTimestamp(thirtyDaysAgo, props.allOneDayAssets),
     );
-    const threeMonthsAssets = chartParser(
-        cutByTimestamp(threeMonthsAgo, allOneDayAssets.data),
+    const threeMonthsAssets = parseMethod(
+        cutByTimestamp(threeMonthsAgo, props.allOneDayAssets),
     );
-    const oneYearAssets = chartParser(
-        cutByTimestamp(oneYearAgo, allOneDayAssets.data),
+    const oneYearAssets = parseMethod(
+        cutByTimestamp(oneYearAgo, props.allOneDayAssets),
     );
-    const fiveYearsAssets = chartParser(
-        cutByTimestamp(fiveYearsAgo, allOneDayAssets.data),
+    const fiveYearsAssets = parseMethod(
+        cutByTimestamp(fiveYearsAgo, props.allOneDayAssets),
     );
 
     return (
         <div>
-            <div className="chart-tabs">
-                <Tabs defaultActiveKey="1" type="card">
-                    <TabPane tab="1D" key="1">
-                        <Chart seriesData={dailyAssets} />
-                    </TabPane>
-                    <TabPane tab="5D" key="2">
-                        <Chart seriesData={fiveDaysAssets} />
-                    </TabPane>
-                    <TabPane tab="1M" key="3">
-                        <Chart seriesData={thirtyDaysAssets} />
-                    </TabPane>
-                    <TabPane tab="3M" key="4">
-                        <Chart seriesData={threeMonthsAssets} />
-                    </TabPane>
-                    <TabPane tab="1Y" key="5">
-                        <Chart seriesData={oneYearAssets} />
-                    </TabPane>
-                    <TabPane tab="5Y" key="6">
-                        <Chart seriesData={fiveYearsAssets} />
-                    </TabPane>
-                </Tabs>
-            </div>
+            <Tabs defaultActiveKey="1" type="card">
+                <TabPane tab="1D" key="1">
+                    <Chart
+                        seriesData={dailyAssets}
+                        seriesName={props.seriesName}
+                    />
+                </TabPane>
+                <TabPane tab="5D" key="2">
+                    <Chart
+                        seriesData={fiveDaysAssets}
+                        seriesName={props.seriesName}
+                    />
+                </TabPane>
+                <TabPane tab="1M" key="3">
+                    <Chart
+                        seriesData={thirtyDaysAssets}
+                        seriesName={props.seriesName}
+                    />
+                </TabPane>
+                <TabPane tab="3M" key="4">
+                    <Chart
+                        seriesData={threeMonthsAssets}
+                        seriesName={props.seriesName}
+                    />
+                </TabPane>
+                <TabPane tab="1Y" key="5">
+                    <Chart
+                        seriesData={oneYearAssets}
+                        seriesName={props.seriesName}
+                    />
+                </TabPane>
+                <TabPane tab="5Y" key="6">
+                    <Chart
+                        seriesData={fiveYearsAssets}
+                        seriesName={props.seriesName}
+                    />
+                </TabPane>
+            </Tabs>
         </div>
     );
 };

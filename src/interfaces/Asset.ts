@@ -3,7 +3,7 @@ export default interface IAsset {
   low?: number;
   id?: string;
   last_updated: string;
-  market_cap?: number;
+  market_cap: number;
   market_cap_change?: number;
   market_cap_rank?: number;
   name?: string;

@@ -15,14 +15,7 @@ const LiveAssetsView: () => JSX.Element = () => {
     return (
         <>
             <Row gutter={[16, 32]} justify="center">
-                <Col
-                    xs={24}
-                    sm={24}
-                    md={24}
-                    lg={8}
-                    xl={8}
-                    xxl={{ span: 6 }}
-                >
+                <Col xs={24} sm={24} md={24} lg={8} xl={8} xxl={{ span: 6 }}>
                     <LiveAssetsSortedBy
                         id={'1'}
                         assets={assetArray}

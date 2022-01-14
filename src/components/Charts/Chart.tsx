@@ -3,7 +3,10 @@ import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highstock';
 import { chartViewOptions } from './config/chartViewOptions';
 
-export const Chart = (props: { seriesData: number[][] }) => {
+export const Chart = (props: {
+    seriesData: number[][];
+    seriesName: string;
+}) => {
     const [chartOptions, setChartOptions] = useState(chartViewOptions);
 
     const updateSeries = (seriesData: number[][]): boolean => {
@@ -14,6 +17,7 @@ export const Chart = (props: { seriesData: number[][] }) => {
             series: [
                 {
                     data: seriesData,
+                    name: props.seriesName,
                 },
             ],
         });
