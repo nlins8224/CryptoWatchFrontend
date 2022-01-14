@@ -26,8 +26,6 @@ export const ChartManager = () => {
         setSeriesName('Market Cap');
     };
 
-    console.log(seriesName);
-
     return (
         <div className="chart-tabs">
             <Space className="buttons-panel" size={10}>
