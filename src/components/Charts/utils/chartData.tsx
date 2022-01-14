@@ -1,11 +1,11 @@
-import {cutByTimestamp, getMidnightXDaysAgoUTC, getMidnightXYearsAgoUTC,} from '../../../timeUtils';
-import {chartFilterByMarketCap, chartFilterByPrice,} from './chartParser';
+import {parseChartAssets,} from './chartParser';
 import React from 'react';
 import {useLocation} from "react-router-dom";
 import {useGetHistoricalSymbolData} from "./useGetHistoricalSymbolData";
-import ChartSeries from "../../../interfaces/ChartSeries";
+import ChartSeriesName from "../../../interfaces/ChartSeriesName";
+import {getMidnightXDaysAgoUTC, getMidnightXYearsAgoUTC} from "../../../timeUtils";
 
-export const chartData = (seriesName: ChartSeries) => {
+export const chartData = (seriesName: ChartSeriesName) => {
 
     const location = useLocation();
     const symbol = location.pathname.split('/').pop();
@@ -16,36 +16,13 @@ export const chartData = (seriesName: ChartSeries) => {
     const allOneMinuteAssets = useGetHistoricalSymbolData(path1Min);
     const allOneDayAssets = useGetHistoricalSymbolData(path1Day);
 
-    const midnightUTC = getMidnightXDaysAgoUTC(0);
-    const fiveDaysAgo = getMidnightXDaysAgoUTC(4);
-    const thirtyDaysAgo = getMidnightXDaysAgoUTC(30);
-    const threeMonthsAgo = getMidnightXDaysAgoUTC(90);
-    const oneYearAgo = getMidnightXYearsAgoUTC(1);
-    const fiveYearsAgo = getMidnightXYearsAgoUTC(5);
+    const dailyAssets = parseChartAssets(allOneMinuteAssets.data, seriesName, 0, getMidnightXDaysAgoUTC)
+    const fiveDaysAssets = parseChartAssets(allOneMinuteAssets.data, seriesName, 4, getMidnightXDaysAgoUTC)
+    const thirtyDaysAssets =  parseChartAssets(allOneDayAssets.data, seriesName, 30, getMidnightXDaysAgoUTC)
+    const threeMonthsAssets =  parseChartAssets(allOneDayAssets.data, seriesName, 90, getMidnightXDaysAgoUTC)
 
-    const parseMethod =
-        seriesName.name === 'Price'
-            ? chartFilterByPrice
-            : chartFilterByMarketCap;
-
-    const dailyAssets = parseMethod(
-        cutByTimestamp(midnightUTC, allOneMinuteAssets.data),
-    );
-    const fiveDaysAssets = parseMethod(
-        cutByTimestamp(fiveDaysAgo, allOneMinuteAssets.data),
-    );
-    const thirtyDaysAssets = parseMethod(
-        cutByTimestamp(thirtyDaysAgo, allOneDayAssets.data),
-    );
-    const threeMonthsAssets = parseMethod(
-        cutByTimestamp(threeMonthsAgo, allOneDayAssets.data),
-    );
-    const oneYearAssets = parseMethod(
-        cutByTimestamp(oneYearAgo, allOneDayAssets.data),
-    );
-    const fiveYearsAssets = parseMethod(
-        cutByTimestamp(fiveYearsAgo, allOneDayAssets.data),
-    );
+    const oneYearAssets = parseChartAssets(allOneDayAssets.data, seriesName, 1, getMidnightXYearsAgoUTC)
+    const fiveYearsAssets = parseChartAssets(allOneDayAssets.data, seriesName, 5, getMidnightXYearsAgoUTC)
 
    return {
        dailyAssets,
