@@ -1,4 +1,3 @@
-import IAsset from '../../interfaces/Asset';
 import {
     cutByTimestamp,
     getMidnightXDaysAgoUTC,
@@ -11,13 +10,23 @@ import {
 import { Tabs } from 'antd';
 import { Chart } from './Chart';
 import React from 'react';
+import {useLocation} from "react-router-dom";
+import {useGetHistoricalSymbolData} from "./useGetHistoricalSymbolData";
 const { TabPane } = Tabs;
 
 export const ChartView = (props: {
-    allOneMinuteAssets: IAsset[];
-    allOneDayAssets: IAsset[];
     seriesName: 'Price' | 'Market Cap';
 }) => {
+
+    const location = useLocation();
+    const symbol = location.pathname.split('/').pop();
+
+    const path1Min = `/historical-coins-1M/${symbol}`;
+    const path1Day = `/historical-coins-1D/${symbol}`;
+
+    const allOneMinuteAssets = useGetHistoricalSymbolData(path1Min);
+    const allOneDayAssets = useGetHistoricalSymbolData(path1Day);
+
     const midnightUTC = getMidnightXDaysAgoUTC(0);
     const fiveDaysAgo = getMidnightXDaysAgoUTC(4);
     const thirtyDaysAgo = getMidnightXDaysAgoUTC(30);
@@ -31,22 +40,22 @@ export const ChartView = (props: {
             : chartFilterByMarketCap;
 
     const dailyAssets = parseMethod(
-        cutByTimestamp(midnightUTC, props.allOneMinuteAssets),
+        cutByTimestamp(midnightUTC, allOneMinuteAssets.data),
     );
     const fiveDaysAssets = parseMethod(
-        cutByTimestamp(fiveDaysAgo, props.allOneMinuteAssets),
+        cutByTimestamp(fiveDaysAgo, allOneMinuteAssets.data),
     );
     const thirtyDaysAssets = parseMethod(
-        cutByTimestamp(thirtyDaysAgo, props.allOneDayAssets),
+        cutByTimestamp(thirtyDaysAgo, allOneDayAssets.data),
     );
     const threeMonthsAssets = parseMethod(
-        cutByTimestamp(threeMonthsAgo, props.allOneDayAssets),
+        cutByTimestamp(threeMonthsAgo, allOneDayAssets.data),
     );
     const oneYearAssets = parseMethod(
-        cutByTimestamp(oneYearAgo, props.allOneDayAssets),
+        cutByTimestamp(oneYearAgo, allOneDayAssets.data),
     );
     const fiveYearsAssets = parseMethod(
-        cutByTimestamp(fiveYearsAgo, props.allOneDayAssets),
+        cutByTimestamp(fiveYearsAgo, allOneDayAssets.data),
     );
 
     return (

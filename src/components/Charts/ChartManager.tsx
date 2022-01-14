@@ -1,5 +1,3 @@
-import { useLocation } from 'react-router-dom';
-import { useGetHistoricalSymbolData } from './useGetHistoricalSymbolData';
 import React, { useState } from 'react';
 
 import { ChartView } from './ChartView';
@@ -9,14 +7,6 @@ export const ChartManager = () => {
     const [seriesName, setSeriesName] = useState<'Price' | 'Market Cap'>(
         'Price',
     );
-    const location = useLocation();
-    const symbol = location.pathname.split('/').pop();
-
-    const path1Min = `/historical-coins-1M/${symbol}`;
-    const path1Day = `/historical-coins-1D/${symbol}`;
-
-    const allOneMinuteAssets = useGetHistoricalSymbolData(path1Min);
-    const allOneDayAssets = useGetHistoricalSymbolData(path1Day);
 
     const handleButtonPriceClick = () => {
         setSeriesName('Price');
@@ -39,10 +29,7 @@ export const ChartManager = () => {
                     Market Cap
                 </Button>
             </Space>
-            <ChartView
-                allOneDayAssets={allOneDayAssets.data}
-                allOneMinuteAssets={allOneMinuteAssets.data}
-                seriesName={seriesName}
+            <ChartView seriesName={seriesName}
             />
         </div>
     );
