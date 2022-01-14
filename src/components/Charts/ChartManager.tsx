@@ -30,7 +30,7 @@ export const ChartManager = () => {
 
     return (
         <div className="chart-tabs">
-            <Space className="buttons-panel" size={5}>
+            <Space className="buttons-panel" size={10}>
                 <Button type="primary" onClick={() => handleButtonPriceClick()}>
                     Price
                 </Button>

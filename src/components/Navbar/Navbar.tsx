@@ -11,7 +11,7 @@ const Navbar = () => {
         <>
             <div className="menu">
                 <MainMenu />
-                <Space className="login" size={15}>
+                <Space className="login" size={10}>
                     <LoginLogoutSwitchButton />
                     <AuthRedirectButton url="/auth" text="Sign Up" />
                 </Space>

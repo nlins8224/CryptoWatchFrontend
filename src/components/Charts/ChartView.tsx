@@ -7,7 +7,7 @@ import {
 import {
     chartFilterByPrice,
     chartFilterByMarketCap,
-} from './chartFilterByPrice';
+} from './chartParser';
 import { Tabs } from 'antd';
 import { Chart } from './Chart';
 import React from 'react';

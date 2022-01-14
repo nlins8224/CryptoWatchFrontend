@@ -1,5 +1,6 @@
 import IAsset from '../../interfaces/Asset';
 
+// TODO: this should be one function
 export const chartFilterByPrice = (assets: IAsset[]) => {
     const parsedAssets = [];
 
