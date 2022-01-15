@@ -9,15 +9,18 @@ const LiveAssetsTable = (props: {
     assets: Array<IAsset>;
     title: string;
     columns: any;
+    chartData: Map<string, any>
 }): JSX.Element => {
     const [assetArray, setAssetArray] = useState<IAsset[]>([]);
 
     const prepareAssets = () => {
-        const assetsWithKey = props.assets.map((obj) => ({
+        const assetsWithKeyAndChartData = props.assets.map((obj) => ({
             ...obj,
             key: uuidv4(),
+            chart_data: props.chartData.get(obj.symbol)
         }));
-        setAssetArray(assetsWithKey);
+        console.log(assetsWithKeyAndChartData)
+        setAssetArray(assetsWithKeyAndChartData);
     };
 
     useEffect(() => {

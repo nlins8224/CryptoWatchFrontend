@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getDatabase, onValue, ref } from 'firebase/database';
+import { onValue} from 'firebase/database';
 import IAsset from '../../interfaces/Asset';
 import { getAssets } from '../getAssets';
 import { parseAssets } from '../parseAssets';

@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { ChartView } from './ChartView';
 import { Button, Space } from 'antd';
 import ChartSeriesName from "../../interfaces/ChartSeriesName";
-import {LiveChartView} from "./LiveChartView";
 
 export const ChartManager = () => {
     const [seriesName, setSeriesName] = useState<ChartSeriesName>({name: "Price"});
@@ -15,8 +14,6 @@ export const ChartManager = () => {
     const handleButtonMarketCapClick = () => {
         setSeriesName({name: "Market Cap"});
     };
-
-    LiveChartView(seriesName)
 
     return (
         <div className="chart-tabs">

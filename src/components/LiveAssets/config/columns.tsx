@@ -1,6 +1,7 @@
 import IRenderText from '../../../interfaces/RenderText';
 import { Link } from 'react-router-dom';
 import React from 'react';
+import {LiveChart} from "../../Charts/LiveChart";
 
 export const columnsVolume: any = [
     {
@@ -92,6 +93,15 @@ export const columns: any = [
         title: 'Low',
         dataIndex: 'low',
         key: 'low',
+    },
+    {
+        title: 'Live Data',
+        dataIndex: 'chart_data',
+        key: 'chart_data',
+        // render: text => <LiveChart seriesData={}/>
+        render: (text: IRenderText, record: { chart_data: number[][] }) => (
+            <LiveChart seriesData={record.chart_data} />
+        ),
     },
 ];
 
