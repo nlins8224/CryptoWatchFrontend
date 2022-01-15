@@ -14,7 +14,7 @@ const liveCoinsRef = ref(db, '/live-coins');
 const LiveAssetsView: () => JSX.Element = () => {
     const assetArray = useLiveAssetsStatusListener(liveCoinsRef);
     const chartData = liveChartData({name: "Price"})
-    console.log(assetArray)
+    console.log(chartData)
 
     return (
         <>

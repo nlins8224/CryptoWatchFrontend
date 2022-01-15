@@ -17,7 +17,6 @@ const LiveAssetsTable = (props: {
             ...obj,
             key: uuidv4(),
         }));
-        console.log(assetsWithKeyAndChartData)
         setAssetArray(assetsWithKeyAndChartData);
     };
 
