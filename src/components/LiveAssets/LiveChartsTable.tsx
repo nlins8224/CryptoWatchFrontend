@@ -5,20 +5,30 @@ import 'antd/dist/antd.css';
 import Text from 'antd/es/typography/Text';
 import { v4 as uuidv4 } from 'uuid';
 
-const LiveAssetsTable = (props: {
-    assets: Array<IAsset>;
+interface ChartData {
+    key: string,
+    chart_data: number[][]
+    symbol: string
+}
+
+const LiveChartsTable = (props: {
     title: string;
     columns: any;
+    chartData: Map<string, any>
 }): JSX.Element => {
-    const [assetArray, setAssetArray] = useState<IAsset[]>([]);
+    const [chartsData, setChartsData] = useState<ChartData[]>([]);
 
     const prepareAssets = () => {
-        const assetsWithKeyAndChartData = props.assets.map((obj) => ({
-            ...obj,
-            key: uuidv4(),
-        }));
-        console.log(assetsWithKeyAndChartData)
-        setAssetArray(assetsWithKeyAndChartData);
+
+        const liveChartsData: ChartData[] = []
+        props.chartData.forEach((value, key) => {
+                   liveChartsData.push({
+                       key: uuidv4(),
+                       chart_data: value,
+                       symbol: key
+                   })
+        })
+        setChartsData(liveChartsData)
     };
 
     useEffect(() => {
@@ -30,7 +40,7 @@ const LiveAssetsTable = (props: {
             <div>
                 <Text>{props.title}</Text>
                 <Table
-                    dataSource={assetArray}
+                    dataSource={chartsData}
                     columns={props.columns}
                     pagination={false}
                     size={'small'}
@@ -40,4 +50,4 @@ const LiveAssetsTable = (props: {
     );
 };
 
-export { LiveAssetsTable };
+export { LiveChartsTable };

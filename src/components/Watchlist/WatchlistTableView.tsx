@@ -7,8 +7,6 @@ import { useWatchlistData } from './useWatchlistData';
 import { columns } from './config/columns';
 import { LiveAssetsTable } from '../LiveAssets/LiveAssetsTable';
 import { Col, Row } from 'antd';
-import {chartData} from "../Charts/utils/chartData";
-import {liveChartData} from "../Charts/liveChartData";
 
 const db = getDatabase();
 const liveCoinsRef = ref(db, '/live-coins');
@@ -16,7 +14,6 @@ const WatchlistTableView: () => JSX.Element = () => {
     const [filteredAssets, setFilteredAssets] = useState<IAsset[]>([]);
     const assetArray = useLiveAssetsStatusListener(liveCoinsRef);
     const symbols = useWatchlistData();
-    const chartData = liveChartData({name: "Price"})
 
     const filterAssets = () => {
         const filtered = assetArray.filter((item) =>
@@ -44,7 +41,6 @@ const WatchlistTableView: () => JSX.Element = () => {
                         assets={filteredAssets}
                         title={'Watchlist'}
                         columns={columns}
-                        chartData={chartData}
                     />
                 </Col>
             </Row>

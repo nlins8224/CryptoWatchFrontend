@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highstock';
-import { chartViewOptions } from './config/chartViewOptions';
+import { liveChartViewOptions } from './config/liveChartViewOptions';
 
 export const LiveChart = (props: {
     seriesData: number[][];
 }) => {
-    const [chartOptions, setChartOptions] = useState(chartViewOptions);
+    const [chartOptions, setChartOptions] = useState(liveChartViewOptions);
 
     const updateSeries = (seriesData: number[][]): boolean => {
         if (!Array.isArray(seriesData) || !seriesData.length) {

@@ -4,9 +4,10 @@ import { LiveAssetsTable } from './LiveAssetsTable';
 import 'antd/dist/antd.less';
 import { LiveAssetsSortedBy } from './LiveAssetsSortedBy';
 import { Col, Row } from 'antd';
-import { columnsVolume, columnsPrice, columns } from './config/columns';
+import {columnsVolume, columnsPrice, columns, columnsCharts} from './config/columns';
 import { useLiveAssetsStatusListener } from './useLiveAssetsStatusListener';
 import {liveChartData} from "../Charts/liveChartData";
+import {LiveChartsTable} from "./LiveChartsTable";
 
 const db = getDatabase();
 const liveCoinsRef = ref(db, '/live-coins');
@@ -48,11 +49,17 @@ const LiveAssetsView: () => JSX.Element = () => {
                         columns={columnsPrice}
                     />
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={{ span: 18 }}>
+                <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={{ span: 14 }}>
                     <LiveAssetsTable
                         assets={assetArray}
                         title={'Cryptocurrency'}
                         columns={columns}
+                    />
+                </Col>
+                <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={{ span: 4 }}>
+                    <LiveChartsTable
+                        title={'Live Data'}
+                        columns={columnsCharts}
                         chartData={chartData}
                     />
                 </Col>

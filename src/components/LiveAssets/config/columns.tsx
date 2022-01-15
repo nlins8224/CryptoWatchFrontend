@@ -94,6 +94,9 @@ export const columns: any = [
         dataIndex: 'low',
         key: 'low',
     },
+];
+
+export const columnsCharts: any = [
     {
         title: 'Live Data',
         dataIndex: 'chart_data',
@@ -101,7 +104,7 @@ export const columns: any = [
         render: (text: IRenderText, record: { chart_data: number[][] }) => (
             <LiveChart seriesData={record.chart_data} />
         ),
-    },
-];
+    }
+]
 
-export default { columns, columnsPrice, columnsVolume };
+export default { columns, columnsPrice, columnsVolume, columnsCharts };
