@@ -98,7 +98,6 @@ export const columns: any = [
         title: 'Live Data',
         dataIndex: 'chart_data',
         key: 'chart_data',
-        // render: text => <LiveChart seriesData={}/>
         render: (text: IRenderText, record: { chart_data: number[][] }) => (
             <LiveChart seriesData={record.chart_data} />
         ),
