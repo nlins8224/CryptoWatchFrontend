@@ -19,7 +19,7 @@ import { getMidnightXDaysAgoUTC } from '../../timeUtils';
 
 const db = getDatabase();
 const liveCoinsRef = ref(db, '/live-coins');
-const LiveAssetsTableView = () => {
+const LiveTableView = () => {
     const assetArray = useLiveAssetsStatusListener(liveCoinsRef);
     //const chartData = getLiveChartData({name: "Price"})
 
@@ -109,4 +109,4 @@ const LiveAssetsTableView = () => {
     );
 };
 
-export { LiveAssetsTableView };
+export { LiveTableView };

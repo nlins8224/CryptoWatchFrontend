@@ -1,12 +1,12 @@
 import React from 'react';
 import '../styles/App.less';
 import '../firebase/firebase';
-import { LiveAssetsTableView } from '../components/LiveAssets/LiveAssetsTableView';
+import { LiveTableView } from '../components/LiveAssets/LiveTableView';
 
 const QuotePage = () => {
     return (
         <div>
-            <LiveAssetsTableView />
+            <LiveTableView />
         </div>
     );
 };
