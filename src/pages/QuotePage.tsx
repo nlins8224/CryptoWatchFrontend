@@ -1,10 +1,14 @@
 import React from 'react';
 import '../styles/App.less';
 import '../firebase/firebase';
-import { LiveAssetsView } from '../components/LiveAssets/LiveAssetsView';
+import { LiveAssetsTableView } from '../components/LiveAssets/LiveAssetsTableView';
 
 const QuotePage = () => {
-    return <LiveAssetsView />;
+    return (
+        <div>
+            <LiveAssetsTableView />
+        </div>
+    );
 };
 
 export default QuotePage;

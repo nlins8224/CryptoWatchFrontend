@@ -5,21 +5,20 @@ import Text from 'antd/es/typography/Text';
 import { v4 as uuidv4 } from 'uuid';
 
 interface ChartData {
-    key: string,
-    chart_data: number[][]
-    symbol: string
+    key: string;
+    chart_data: number[][];
+    symbol: string;
 }
 
 const LiveChartsTable = (props: {
     title: string;
     columns: any;
-    chartData: Map<string, any>
+    chartData: Map<string, number[][]>;
 }): JSX.Element => {
     const [chartsData, setChartsData] = useState<ChartData[]>([]);
 
     const prepareAssets = () => {
-
-        const liveChartsData: ChartData[] = []
+        const liveChartsData: ChartData[] = [];
         props.chartData.forEach((value, key) => {
                    liveChartsData.push({
                        key: uuidv4(),

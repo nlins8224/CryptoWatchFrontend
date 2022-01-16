@@ -39,13 +39,13 @@ export const liveChartViewOptions: any = {
         shared: true,
     },
     navigator: {
-       enabled: false
+        enabled: false,
     },
     plotOptions: {
         column: {
             pointPadding: 0.2,
-            borderWidth: 0
-        }
+            borderWidth: 0,
+        },
     },
     chart: {
         backgroundColor: backgroundColor,
@@ -69,7 +69,7 @@ export const liveChartViewOptions: any = {
     },
 
     scrollbar: {
-        enabled: false
+        enabled: false,
     },
 
     axes: {

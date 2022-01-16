@@ -3,9 +3,7 @@ import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highstock';
 import { liveChartViewOptions } from './config/liveChartViewOptions';
 
-export const LiveChart = (props: {
-    seriesData: number[][];
-}) => {
+export const LiveChart = (props: { seriesData: number[][] }) => {
     const [chartOptions, setChartOptions] = useState(liveChartViewOptions);
 
     const updateSeries = (seriesData: number[][]): boolean => {
@@ -16,7 +14,7 @@ export const LiveChart = (props: {
             series: [
                 {
                     data: seriesData,
-                    name: "Price"
+                    name: 'Price',
                 },
             ],
         });

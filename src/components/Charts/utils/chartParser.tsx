@@ -1,6 +1,10 @@
 import IAsset from '../../../interfaces/Asset';
-import ChartSeriesName from "../../../interfaces/ChartSeriesName";
-import {cutByTimestamp, getMidnightXDaysAgoUTC, getMidnightXYearsAgoUTC} from "../../../timeUtils";
+import ChartSeriesName from '../../../interfaces/ChartSeriesName';
+import {
+    cutByTimestamp,
+    getMidnightXDaysAgoUTC,
+    getMidnightXYearsAgoUTC,
+} from '../../../timeUtils';
 
 // TODO: this should be one function
 export const filterChartByPrice = (assets: IAsset[]) => {
@@ -39,16 +43,18 @@ export const filterChartByMarketCap = (assets: IAsset[]) => {
     return parsedAssets;
 };
 
-
-export const parseChartAssets = (data: IAsset[], seriesName: ChartSeriesName, timeAgo: number, timeFunction: (time: number) => number) => {
-    const date = timeFunction(timeAgo);
+export const parseChartAssets = (
+    data: IAsset[],
+    seriesName: ChartSeriesName,
+    timeAgo: number,
+    timeFunction: (time: number) => number,
+) => {
+    const time = timeFunction(timeAgo);
 
     const parseMethod =
         seriesName.name === 'Price'
             ? filterChartByPrice
             : filterChartByMarketCap;
 
-    return parseMethod(
-        cutByTimestamp(date, data),
-    )
-}
+    return parseMethod(cutByTimestamp(time, data));
+};

@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 
 import { ChartView } from './ChartView';
 import { Button, Space } from 'antd';
-import ChartSeriesName from "../../interfaces/ChartSeriesName";
+import ChartSeriesName from '../../interfaces/ChartSeriesName';
 
 export const ChartManager = () => {
-    const [seriesName, setSeriesName] = useState<ChartSeriesName>({name: "Price"});
+    const [seriesName, setSeriesName] = useState<ChartSeriesName>({
+        name: 'Price',
+    });
 
     const handleButtonPriceClick = () => {
-        setSeriesName({name: "Price"});
+        setSeriesName({ name: 'Price' });
     };
 
     const handleButtonMarketCapClick = () => {
-        setSeriesName({name: "Market Cap"});
+        setSeriesName({ name: 'Market Cap' });
     };
 
     return (
@@ -28,8 +30,7 @@ export const ChartManager = () => {
                     Market Cap
                 </Button>
             </Space>
-            <ChartView seriesName={seriesName}
-            />
+            <ChartView seriesName={seriesName} />
         </div>
     );
 };
