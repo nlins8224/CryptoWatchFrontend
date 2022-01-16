@@ -5,11 +5,34 @@ const backgroundColor = '#15191C';
 
 export const liveChartViewOptions: any = {
     yAxis: {
-        enabled: false
+        labels: {
+            x: 2,
+            style: {
+                color: secondaryColor,
+                position: 'absolute',
+            },
+            align: 'left',
+        },
+        gridLineWidth: 0,
+        gridLineColor: gridLineColor,
+        tickColor: secondaryColor,
     },
 
     xAxis: {
-        enabled: false
+        x: 2,
+        type: 'data',
+        color: secondaryColor,
+        gridLineWidth: 0,
+        gridLineColor: gridLineColor,
+        tickLength: 0,
+        lineColor: gridLineColor,
+
+        labels: {
+            style: {
+                color: secondaryColor,
+                position: 'absolute',
+            },
+        },
     },
 
     tooltip: {
@@ -19,11 +42,14 @@ export const liveChartViewOptions: any = {
        enabled: false
     },
     plotOptions: {
-        enabled: false
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
     },
     chart: {
         backgroundColor: backgroundColor,
-        height: 100,
+        height: 125,
         width: 250,
     },
 
@@ -31,7 +57,7 @@ export const liveChartViewOptions: any = {
         rules: [
             {
                 condition: {
-                    maxWidth: 100,
+                    maxWidth: 250,
                 },
                 chartOptions: {
                     legend: {
