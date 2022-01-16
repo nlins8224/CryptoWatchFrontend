@@ -10,7 +10,7 @@ export const liveChartData = (
 ) => {
 
     //should be a hook?
-    const path1Min = '/historical-coins-1M';
+    const path1Min = '/historical-coins-1M-5D-filtered';
     const allOneMinuteAssets = useGetHistoricalData(path1Min);
 
     const assetsData: Map<string, any> = new Map()
