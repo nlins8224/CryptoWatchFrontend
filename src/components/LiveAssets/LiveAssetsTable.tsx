@@ -24,7 +24,6 @@ const LiveAssetsTable = (props: {
         prepareAssets();
     }, [props]);
 
-
     return (
         <>
             <div>

@@ -20,14 +20,14 @@ const LiveChartsTable = (props: {
     const prepareAssets = () => {
         const liveChartsData: ChartData[] = [];
         props.chartData.forEach((value, key) => {
-                   liveChartsData.push({
-                       key: uuidv4(),
-                       chart_data: value,
-                       symbol: key
-                   })
-        })
-        console.log(liveChartsData)
-        setChartsData(liveChartsData)
+            liveChartsData.push({
+                key: uuidv4(),
+                chart_data: value,
+                symbol: key,
+            });
+        });
+        console.log(liveChartsData);
+        setChartsData(liveChartsData);
     };
 
     useEffect(() => {
