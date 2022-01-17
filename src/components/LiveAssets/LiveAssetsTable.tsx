@@ -26,13 +26,12 @@ const LiveAssetsTable = (props: {
 
     return (
         <>
-            <div>
+            <div className="live-assets-table">
                 <Text>{props.title}</Text>
                 <Table
                     dataSource={assetArray}
                     columns={props.columns}
                     pagination={false}
-                    size={'small'}
                 />
             </div>
         </>

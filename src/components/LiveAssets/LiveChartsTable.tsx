@@ -42,7 +42,6 @@ const LiveChartsTable = (props: {
                     dataSource={chartsData}
                     columns={props.columns}
                     pagination={false}
-                    size={'small'}
                 />
             </div>
         </>

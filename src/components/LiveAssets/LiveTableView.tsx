@@ -21,7 +21,6 @@ const db = getDatabase();
 const liveCoinsRef = ref(db, '/live-coins');
 const LiveTableView = () => {
     const assetArray = useLiveAssetsStatusListener(liveCoinsRef);
-    //const chartData = getLiveChartData({name: "Price"})
 
     const path1Min = '/historical-coins-1M-5D-filtered';
     const allOneMinuteAssets = useGetHistoricalData(path1Min);
@@ -90,16 +89,18 @@ const LiveTableView = () => {
                         columns={columnsPrice}
                     />
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={{ span: 14 }}>
+            </Row>
+            <Row justify="center">
+                <Col xs={20} sm={20} md={20} lg={20} xl={20} xxl={{ span: 14 }}>
                     <LiveAssetsTable
                         assets={assetArray}
                         title={'Cryptocurrency'}
                         columns={columns}
                     />
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={{ span: 4 }}>
+                <Col xs={4} sm={4} md={4} lg={4} xl={4} xxl={{ span: 4 }}>
                     <LiveChartsTable
-                        title={'Cryptocurrency'}
+                        title={'5 Days data'}
                         columns={columnsCharts}
                         chartData={chartData}
                     />
