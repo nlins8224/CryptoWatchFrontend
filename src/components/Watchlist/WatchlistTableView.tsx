@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import IAsset from '../../interfaces/Asset';
 import 'antd/dist/antd.css';
-import { useLiveAssetsStatusListener } from '../LiveAssets/useLiveAssetsStatusListener';
+import { useLiveAssetsStatusListener } from '../../hooks/useLiveAssetsStatusListener';
 import { getDatabase, ref } from '@firebase/database';
-import { useWatchlistData } from './useWatchlistData';
+import { useWatchlistData } from '../../hooks/useWatchlistData';
 import { columns } from './config/columns';
-import { LiveAssetsTable } from '../LiveAssets/LiveAssetsTable';
+import { LiveAssetsTable } from '../LiveAssets/children/LiveAssetsTable';
 import { Col, Row } from 'antd';
 import { getLiveChartData } from '../Charts/utils/getLiveChartData';
 

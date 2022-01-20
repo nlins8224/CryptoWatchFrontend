@@ -3,7 +3,7 @@ import React from 'react';
 import { parseChartAssets } from './chartParser';
 import { getMidnightXDaysAgoUTC } from '../../../timeUtils';
 import ChartSeriesName from '../../../interfaces/ChartSeriesName';
-import { useGetHistoricalData } from './useGetHistoricalData';
+import { useGetHistoricalData } from '../../../hooks/useGetHistoricalData';
 
 export const getLiveChartData = (seriesName: ChartSeriesName) => {
     //should be a hook?

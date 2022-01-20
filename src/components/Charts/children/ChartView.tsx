@@ -1,8 +1,8 @@
 import { Tabs } from 'antd';
 import { Chart } from './Chart';
 import React from 'react';
-import { chartData } from './utils/chartData';
-import ChartSeriesName from '../../interfaces/ChartSeriesName';
+import { chartData } from '../utils/chartData';
+import ChartSeriesName from '../../../interfaces/ChartSeriesName';
 const { TabPane } = Tabs;
 
 export const ChartView = (props: { seriesName: ChartSeriesName }) => {

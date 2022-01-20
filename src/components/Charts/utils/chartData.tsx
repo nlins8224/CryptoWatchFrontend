@@ -1,7 +1,7 @@
 import { parseChartAssets } from './chartParser';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { useGetHistoricalSymbolData } from './useGetHistoricalSymbolData';
+import { useGetHistoricalSymbolData } from '../../../hooks/useGetHistoricalSymbolData';
 import ChartSeriesName from '../../../interfaces/ChartSeriesName';
 import {
     getMidnightXDaysAgoUTC,

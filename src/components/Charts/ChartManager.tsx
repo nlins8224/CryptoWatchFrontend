@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { ChartView } from './ChartView';
+import { ChartView } from './children/ChartView';
 import { Button, Space } from 'antd';
 import ChartSeriesName from '../../interfaces/ChartSeriesName';
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { getDatabase, onValue, ref } from 'firebase/database';
-import { LiveAssetsTable } from './LiveAssetsTable';
+import { LiveAssetsTable } from './children/LiveAssetsTable';
 import 'antd/dist/antd.less';
-import { LiveAssetsSortedBy } from './LiveAssetsSortedBy';
+import { LiveAssetsSortedBy } from './children/LiveAssetsSortedBy';
 import { Col, Row } from 'antd';
 import {
     columnsVolume,
@@ -10,10 +10,10 @@ import {
     columns,
     columnsCharts,
 } from './config/columns';
-import { useLiveAssetsStatusListener } from './useLiveAssetsStatusListener';
-import { LiveChartsTable } from './LiveChartsTable';
+import { useLiveAssetsStatusListener } from '../../hooks/useLiveAssetsStatusListener';
+import { LiveChartsTable } from './children/LiveChartsTable';
 import { getLiveChartData } from '../Charts/utils/getLiveChartData';
-import { useGetHistoricalData } from '../Charts/utils/useGetHistoricalData';
+import { useGetHistoricalData } from '../../hooks/useGetHistoricalData';
 import { parseChartAssets } from '../Charts/utils/chartParser';
 import { getMidnightXDaysAgoUTC } from '../../timeUtils';
 

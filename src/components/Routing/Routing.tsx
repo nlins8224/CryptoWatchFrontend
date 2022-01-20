@@ -7,7 +7,7 @@ import WatchlistPage from '../../pages/WatchlistPage';
 import QuoteChartPage from '../../pages/QuoteChartPage';
 import RegisterPage from '../../pages/auth/RegisterPage';
 import LoginPage from '../../pages/auth/LoginPage';
-import RequireAuth from './RequireAuth';
+import RequireAuth from './children/RequireAuth';
 import { Layout, Spin } from 'antd';
 import { auth } from '../../firebase/firebase';
 import Navbar from '../Navbar/Navbar';

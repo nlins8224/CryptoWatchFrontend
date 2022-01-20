@@ -1,4 +1,4 @@
-import { auth } from '../../firebase/firebase';
+import { auth } from '../../../firebase/firebase';
 import AuthRedirectButton from './AuthRedirectButton';
 import LogoutButton from './LogoutButton';
 import React from 'react';

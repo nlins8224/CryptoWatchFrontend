@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import IAsset from '../../interfaces/Asset';
-import { parseAssets } from '../parseAssets';
+import IAsset from '../interfaces/Asset';
+import { parseAssets } from '../components/parseAssets';
 import { getDatabase, onValue, ref } from '@firebase/database';
 import { useLocation } from 'react-router-dom';
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { onValue } from 'firebase/database';
-import IAsset from '../../interfaces/Asset';
-import { getAssets } from '../getAssets';
-import { parseAssets } from '../parseAssets';
+import IAsset from '../interfaces/Asset';
+import { getAssets } from '../components/getAssets';
+import { parseAssets } from '../components/parseAssets';
 
 export const useLiveAssetsStatusListener = (ref: any) => {
     const [assetArray, setAssetArray] = useState<IAsset[]>([]);

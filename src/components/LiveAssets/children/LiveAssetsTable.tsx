@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'antd';
-import IAsset from '../../interfaces/Asset';
+import IAsset from '../../../interfaces/Asset';
 import 'antd/dist/antd.css';
 import Text from 'antd/es/typography/Text';
 import { v4 as uuidv4 } from 'uuid';
