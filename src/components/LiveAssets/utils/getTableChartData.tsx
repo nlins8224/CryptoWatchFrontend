@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { parseChartAssets } from './chartParser';
+import { parseChartAssets } from '../../Charts/utils/chartParser';
 import { getMidnightXDaysAgoUTC } from '../../../timeUtils';
 import ChartSeriesName from '../../../interfaces/ChartSeriesName';
 import { useGetHistoricalData } from '../../../hooks/useGetHistoricalData';
 
-export const getLiveChartData = (seriesName: ChartSeriesName) => {
+export const getTableChartData = (seriesName: ChartSeriesName) => {
     //should be a hook?
     const path1Min = '/historical-coins-1M-5D-filtered';
     const allOneMinuteAssets = useGetHistoricalData(path1Min);
