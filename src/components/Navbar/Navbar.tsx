@@ -3,7 +3,7 @@ import '../../styles/App.less';
 import '../../firebase/firebase';
 import { Col, Row, Space } from 'antd';
 import { LoginLogoutSwitchButton } from './children/LoginLogoutSwitchButton';
-import AuthRedirectButton from './children/AuthRedirectButton';
+import AuthButton from './children/AuthButton';
 import MainMenu from './children/MainMenu';
 
 const Navbar = () => {
@@ -13,7 +13,7 @@ const Navbar = () => {
                 <MainMenu />
                 <Space className="login" size={10}>
                     <LoginLogoutSwitchButton />
-                    <AuthRedirectButton url="/auth" text="Sign Up" />
+                    <AuthButton url="/auth" text="Sign Up" />
                 </Space>
             </div>
         </>
