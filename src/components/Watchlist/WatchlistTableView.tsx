@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import IAsset from '../../interfaces/Asset';
 import 'antd/dist/antd.css';
-import { useLiveAssetsStatusListener } from '../../hooks/useLiveAssetsStatusListener';
+import { useLiveAssetsEventListener } from '../../hooks/useLiveAssetsEventListener';
 import { getDatabase, ref } from '@firebase/database';
 import { useWatchlistData } from '../../hooks/useWatchlistData';
 import { columns } from './config/columns';
@@ -14,7 +14,7 @@ const liveCoinsRef = ref(db, '/live-coins');
 const WatchlistTableView: () => JSX.Element = () => {
     const [filteredAssets, setFilteredAssets] = useState<IAsset[]>([]);
     const chartData = getLiveChartData({ name: 'Price' });
-    const assetArray = useLiveAssetsStatusListener(liveCoinsRef);
+    const assetArray = useLiveAssetsEventListener(liveCoinsRef);
     const symbols = useWatchlistData();
 
     const filterAssets = () => {

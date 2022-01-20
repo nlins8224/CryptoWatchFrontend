@@ -10,7 +10,7 @@ import {
     columns,
     columnsCharts,
 } from './config/columns';
-import { useLiveAssetsStatusListener } from '../../hooks/useLiveAssetsStatusListener';
+import { useLiveAssetsEventListener } from '../../hooks/useLiveAssetsEventListener';
 import { LiveChartsTable } from './children/LiveChartsTable';
 import { getLiveChartData } from '../Charts/utils/getLiveChartData';
 import { useGetHistoricalData } from '../../hooks/useGetHistoricalData';
@@ -20,7 +20,7 @@ import { getMidnightXDaysAgoUTC } from '../../timeUtils';
 const db = getDatabase();
 const liveCoinsRef = ref(db, '/live-coins');
 const LiveTableView = () => {
-    const assetArray = useLiveAssetsStatusListener(liveCoinsRef);
+    const assetArray = useLiveAssetsEventListener(liveCoinsRef);
 
     const path1Min = '/historical-coins-1M-5D-filtered';
     const allOneMinuteAssets = useGetHistoricalData(path1Min);

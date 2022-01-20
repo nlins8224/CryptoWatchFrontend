@@ -1,9 +1,9 @@
 import { Descriptions, PageHeader } from 'antd';
-import { useLiveAssetStatusListener } from '../../hooks/useLiveAssetStatusListener';
+import { useLiveAssetEventListener } from '../../hooks/useLiveAssetEventListener';
 import SubscribeButton from './children/SubscribeButton';
 
 export const AssetInfoPanel = () => {
-    const liveAsset = useLiveAssetStatusListener();
+    const liveAsset = useLiveAssetEventListener();
 
     return (
         <div className="asset-info-panel">
