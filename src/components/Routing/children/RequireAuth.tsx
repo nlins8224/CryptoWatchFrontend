@@ -1,5 +1,5 @@
 import React from 'react';
-import { auth } from '../../firebase/firebase';
+import { auth } from '../../../firebase/firebase';
 import { Navigate } from 'react-router-dom';
 
 const RequireAuth = (props: { children: any; redirectTo: string }) => {

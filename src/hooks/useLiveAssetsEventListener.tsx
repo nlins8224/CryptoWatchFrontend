@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { getDatabase, onValue, ref } from 'firebase/database';
-import IAsset from '../../interfaces/Asset';
-import { getAssets } from '../getAssets';
-import { parseAssets } from '../parseAssets';
+import { onValue } from 'firebase/database';
+import IAsset from '../interfaces/Asset';
+import { getAssets } from '../components/getAssets';
+import { parseAssets } from '../components/parseAssets';
 
-export const useLiveAssetsStatusListener = (ref: any) => {
+export const useLiveAssetsEventListener = (ref: any) => {
     const [assetArray, setAssetArray] = useState<IAsset[]>([]);
 
-    const setAssetStatusListener = (ref: any) => {
+    const setAssetEventListener = (ref: any) => {
         onValue(ref, (snapshot) => {
             const data: Map<string, IAsset> = new Map(
                 Object.entries(snapshot.val()),
@@ -19,7 +19,7 @@ export const useLiveAssetsStatusListener = (ref: any) => {
     };
 
     useEffect(() => {
-        setAssetStatusListener(ref);
+        setAssetEventListener(ref);
     }, []);
 
     return assetArray;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../../firebase/firebase';
+import { auth } from '../../../firebase/firebase';
 import { Button } from 'antd';
 
 const LogoutButton: React.FunctionComponent = () => {

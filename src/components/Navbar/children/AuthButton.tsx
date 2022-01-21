@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 
-const AuthRedirectButton = (props: { url: string; text: string }) => {
+const AuthButton = (props: { url: string; text: string }) => {
     return (
         <Button type="primary" htmlType="submit">
             <Link to={props.url}>{props.text}</Link>
@@ -10,4 +10,4 @@ const AuthRedirectButton = (props: { url: string; text: string }) => {
     );
 };
 
-export default AuthRedirectButton;
+export default AuthButton;

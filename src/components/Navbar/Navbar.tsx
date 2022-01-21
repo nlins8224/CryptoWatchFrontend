@@ -2,9 +2,9 @@ import React from 'react';
 import '../../styles/App.less';
 import '../../firebase/firebase';
 import { Col, Row, Space } from 'antd';
-import { LoginLogoutSwitchButton } from './LoginLogoutSwitchButton';
-import AuthRedirectButton from './AuthRedirectButton';
-import MainMenu from './MainMenu';
+import { LoginLogoutSwitchButton } from './children/LoginLogoutSwitchButton';
+import AuthButton from './children/AuthButton';
+import MainMenu from './children/MainMenu';
 
 const Navbar = () => {
     return (
@@ -13,7 +13,7 @@ const Navbar = () => {
                 <MainMenu />
                 <Space className="login" size={10}>
                     <LoginLogoutSwitchButton />
-                    <AuthRedirectButton url="/auth" text="Sign Up" />
+                    <AuthButton url="/auth" text="Sign Up" />
                 </Space>
             </div>
         </>

@@ -1,5 +1,5 @@
 import { get, getDatabase, ref } from '@firebase/database';
-import { auth } from '../../firebase/firebase';
+import { auth } from '../firebase/firebase';
 import { useEffect, useState } from 'react';
 
 export const useWatchlistData = () => {
