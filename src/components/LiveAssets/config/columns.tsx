@@ -10,7 +10,7 @@ export const columnsVolume: any = [
         key: 'symbol',
         align: 'center' as const,
         render: (text: IRenderText, record: { symbol: string }) => (
-            <Link to={record.symbol}>{text}</Link>
+            <Link to={record.symbol.toLowerCase()}>{text}</Link>
         ),
     },
     {
@@ -40,7 +40,7 @@ export const columnsPrice: any = [
         key: 'symbol',
         align: 'center' as const,
         render: (text: IRenderText, record: { symbol: string }) => (
-            <Link to={record.symbol}>{text}</Link>
+            <Link to={record.symbol.toLowerCase()}>{text}</Link>
         ),
     },
     {
@@ -69,7 +69,7 @@ export const columns: any = [
         dataIndex: 'symbol',
         key: 'symbol',
         render: (text: IRenderText, record: { symbol: string }) => (
-            <Link to={record.symbol}>{text}</Link>
+            <Link to={record.symbol.toLowerCase()}>{text}</Link>
         ),
     },
     {
