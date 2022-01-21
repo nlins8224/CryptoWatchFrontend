@@ -20,8 +20,6 @@ const LiveAssetsTable = (props: {
             key: uuidv4(),
         }));
 
-        console.log(assetsWithKeyAndChartData)
-
         const formattedAssets = assetsWithKeyAndChartData.map(asset => formatAsset(asset))
 
         setAssetArray(formattedAssets);

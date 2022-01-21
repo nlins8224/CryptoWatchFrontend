@@ -10,12 +10,9 @@ export const formatter = new Intl.NumberFormat('en-US', {
     maximumFractionDigits: 4,
 });
 
-export const percentFormatter = new Intl.NumberFormat('en-US', {
-    style: 'percent',
-
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 4,
-});
+export const wrapWithPercent = (value: number | string) => {
+    return `${value}%`
+}
 
 export const formatAsset = (asset: IAsset): IAssetFormatted => {
         return {
@@ -32,8 +29,8 @@ export const formatAsset = (asset: IAsset): IAssetFormatted => {
             low: formatter.format(asset.low),
             market_cap: formatter.format(asset.market_cap),
 
-            price_change_percentage: percentFormatter.format(asset.price_change_percentage),
-            market_cap_change: percentFormatter.format(asset.market_cap_change),
+            price_change_percentage: wrapWithPercent(asset.price_change_percentage),
+            market_cap_change: wrapWithPercent(asset.market_cap_change),
 
             key: uuidv4()
         }

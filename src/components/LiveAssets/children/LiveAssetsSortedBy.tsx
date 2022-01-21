@@ -3,6 +3,8 @@ import { Table } from 'antd';
 import React, { useEffect, useState } from 'react';
 import Text from 'antd/es/typography/Text';
 import { v4 as uuidv4 } from 'uuid';
+import IAssetFormatted from "../../../interfaces/FormattedAsset";
+import {formatAsset} from "../../../formatter";
 
 const LiveAssetsSortedBy = (props: {
     assets: IAsset[];
@@ -12,7 +14,7 @@ const LiveAssetsSortedBy = (props: {
     title: string;
     columns: any;
 }): JSX.Element => {
-    const [assetArray, setAssetArray] = useState<IAsset[]>([]);
+    const [assetArray, setAssetArray] = useState<IAssetFormatted[]>([]);
 
     const prepareAssets = () => {
         if (!Array.isArray(props.assets) || !props.assets.length) {
@@ -25,21 +27,25 @@ const LiveAssetsSortedBy = (props: {
             key: uuidv4(),
         }));
 
+        const formattedAssets = assetsWithKey.map(asset => formatAsset(asset))
+
         if (props.sortType === 'ascending') {
-            const sortedBy: Array<IAsset> = assetsWithKey
+            const sortedBy: IAssetFormatted[] = assetsWithKey
                 .sort(
                     (a: IAsset, b: IAsset) =>
                         a[props.sortKey] - b[props.sortKey],
                 )
-                .slice(0, ELEMENTS_AMOUNT);
+                .slice(0, ELEMENTS_AMOUNT)
+            .map(asset => formatAsset(asset))
             setAssetArray(sortedBy);
         } else if (props.sortType === 'descending') {
-            const sortedBy: Array<IAsset> = assetsWithKey
+            const sortedBy: IAssetFormatted[] = assetsWithKey
                 .sort(
                     (a: IAsset, b: IAsset) =>
                         b[props.sortKey] - a[props.sortKey],
                 )
-                .slice(0, ELEMENTS_AMOUNT);
+                .slice(0, ELEMENTS_AMOUNT)
+                .map(asset => formatAsset(asset))
             setAssetArray(sortedBy);
         }
     };
