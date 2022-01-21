@@ -4,7 +4,7 @@ import IAsset from '../../../interfaces/Asset';
 import 'antd/dist/antd.css';
 import Text from 'antd/es/typography/Text';
 import {v4 as uuidv4} from 'uuid';
-import {percentFormatter, formatter, formatAsset} from "../../../formatter";
+import {formatAsset} from "../../../formatter";
 import IAssetFormatted from "../../../interfaces/FormattedAsset";
 
 const LiveAssetsTable = (props: {
