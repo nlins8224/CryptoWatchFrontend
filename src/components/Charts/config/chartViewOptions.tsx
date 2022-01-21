@@ -3,15 +3,26 @@ const secondaryColor = '#85B5FA';
 const gridLineColor = '#273341';
 const backgroundColor = '#15191C';
 
-export const chartViewOptions: any = {
-    yAxis: {
-        offset: 20,
+const groupingSettings = [ [
+    'minute',
+    [1, 2, 5, 10, 20, 30]
+],
+    [
+      'hour',
+      [1, 5]
+    ],
+    [
+    'day',
+    [1]
+]]
 
+export const chartViewOptions: any = {
+    yAxis: [{
+        offset: 20,
         labels: {
             x: 10,
             style: {
                 color: secondaryColor,
-                position: 'absolute',
             },
             align: 'left',
         },
@@ -19,6 +30,17 @@ export const chartViewOptions: any = {
         gridLineColor: gridLineColor,
         tickColor: secondaryColor,
     },
+        {
+            labels: {
+                enabled: false
+            },
+            offset: 20,
+            top: '85%',
+            height: '15%',
+            gridLineColor: backgroundColor,
+            tickColor: secondaryColor,
+        }
+    ],
 
     xAxis: {
         x: 10,
@@ -38,7 +60,7 @@ export const chartViewOptions: any = {
     },
 
     tooltip: {
-        shared: true,
+        shared: true
     },
     navigator: {
         outlineColor: gridLineColor,
@@ -109,11 +131,23 @@ export const chartViewOptions: any = {
             name: 'Price',
             type: 'spline',
             data: [[], []],
-
-            tooltip: {
-                valueDecimals: 2,
-            },
             color: primaryColor,
+            dataGrouping: {
+                units: groupingSettings
+            }
         },
+        {
+            type: 'column',
+            name: 'Volume',
+            data: [[], []],
+            yAxis: 1,
+            color: '#3b89f7',
+            dataGrouping: {
+                units: groupingSettings,
+                groupPixelWidth: 0.5,
+                approximation: 'average'
+            }
+
+        }
     ],
 };

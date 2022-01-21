@@ -25,7 +25,7 @@ export const AssetInfoPanel = () => {
                         {liveAsset?.market_cap_rank}
                     </Descriptions.Item>
 
-                    <Descriptions.Item label="Price Change %">
+                    <Descriptions.Item label="Price Change">
                         {liveAsset?.price_change}
                     </Descriptions.Item>
                     <Descriptions.Item label="High">
@@ -35,7 +35,7 @@ export const AssetInfoPanel = () => {
                         {liveAsset?.market_cap_change}
                     </Descriptions.Item>
 
-                    <Descriptions.Item label="Price Change">
+                    <Descriptions.Item label="% Price Change">
                         {liveAsset?.price_change_percentage}
                     </Descriptions.Item>
                     <Descriptions.Item label="Low">
