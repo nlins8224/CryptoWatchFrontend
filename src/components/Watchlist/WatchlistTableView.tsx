@@ -4,7 +4,7 @@ import 'antd/dist/antd.css';
 import { useLiveAssetsEventListener } from '../../hooks/useLiveAssetsEventListener';
 import { getDatabase, ref } from '@firebase/database';
 import { useWatchlistData } from '../../hooks/useWatchlistData';
-import { columns } from './config/columns';
+import { columns } from '../LiveAssets/config/columns'
 import { LiveAssetsTable } from '../LiveAssets/children/LiveAssetsTable';
 import { Col, Row } from 'antd';
 import { getTableChartData } from '../LiveAssets/utils/getTableChartData';
