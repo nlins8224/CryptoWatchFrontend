@@ -2,6 +2,7 @@ import IRenderText from '../../../interfaces/RenderText';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { TableChart } from '../children/TableChart';
+import {formatter} from "../../../formatter";
 
 export const columnsVolume: any = [
     {
@@ -84,6 +85,12 @@ export const columns: any = [
         dataIndex: 'price_change_percentage',
         key: 'price_change_percentage',
     },
+    {
+        title: 'Volume',
+        dataIndex: 'total_volume',
+        key: 'volume',
+    },
+
     {
         title: 'High',
         dataIndex: 'high',
