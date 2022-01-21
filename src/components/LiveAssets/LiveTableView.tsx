@@ -12,7 +12,6 @@ import {
 } from './config/columns';
 import { useLiveAssetsEventListener } from '../../hooks/useLiveAssetsEventListener';
 import { LiveChartsTable } from './children/LiveChartsTable';
-import { getTableChartData } from './utils/getTableChartData';
 import { useGetHistoricalData } from '../../hooks/useGetHistoricalData';
 import { parseChartAssets } from '../Charts/utils/chartParser';
 import { getMidnightXDaysAgoUTC } from '../../timeUtils';

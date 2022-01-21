@@ -26,7 +26,6 @@ export const getTableChartData = (seriesName: ChartSeriesName) => {
             assetsData.set(key, data);
         });
 
-        console.log(assetsData);
         return assetsData;
     }
 

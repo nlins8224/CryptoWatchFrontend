@@ -8,11 +8,14 @@ import { columns } from './config/columns';
 import { LiveAssetsTable } from '../LiveAssets/children/LiveAssetsTable';
 import { Col, Row } from 'antd';
 import { getTableChartData } from '../LiveAssets/utils/getTableChartData';
+import {LiveChartsTable} from "../LiveAssets/children/LiveChartsTable";
+import {columnsCharts} from "../LiveAssets/config/columns";
 
 const db = getDatabase();
 const liveCoinsRef = ref(db, '/live-coins');
 const WatchlistTableView: () => JSX.Element = () => {
     const [filteredAssets, setFilteredAssets] = useState<IAsset[]>([]);
+    const [filteredChartData, setFilteredChartData] = useState<Map<string, any>>(new Map())
     const chartData = getTableChartData({ name: 'Price' });
     const assetArray = useLiveAssetsEventListener(liveCoinsRef);
     const symbols = useWatchlistData();
@@ -24,25 +27,44 @@ const WatchlistTableView: () => JSX.Element = () => {
         setFilteredAssets(filtered);
     };
 
+    const filterChartData = (chartData: Map<string, any>) => {
+        const filtered: Map<string, any> = new Map()
+        chartData.forEach((value: any, key: string) => {
+            if (symbols?.data.includes(key)) {
+                filtered.set(key, value)
+            }
+
+        })
+        setFilteredChartData(filtered)
+    }
+
     useEffect(() => {
         filterAssets();
+        filterChartData(chartData)
     }, [symbols?.data]);
 
     return (
         <div>
-            <Row align="middle">
+            <Row justify="center">
                 <Col
-                    xs={24}
-                    sm={24}
-                    md={24}
-                    lg={24}
-                    xl={24}
-                    xxl={{ span: 15, offset: 4 }}
+                    xs={20}
+                    sm={20}
+                    md={20}
+                    lg={20}
+                    xl={20}
+                    xxl={{ span: 14 }}
                 >
                     <LiveAssetsTable
                         assets={filteredAssets}
                         title={'Watchlist'}
                         columns={columns}
+                    />
+                </Col>
+                <Col xs={4} sm={4} md={4} lg={4} xl={4} xxl={{ span: 4 }}>
+                    <LiveChartsTable
+                        title={'5 Days data'}
+                        columns={columnsCharts}
+                        chartData={filteredChartData}
                     />
                 </Col>
             </Row>
