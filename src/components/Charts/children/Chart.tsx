@@ -13,12 +13,26 @@ export const Chart = (props: {
         if (!Array.isArray(seriesData) || !seriesData.length) {
             return false;
         }
+
+        const filterSeriesData = (series: number[][], fIdx: number) => {
+            return series.map((subArray) => {
+                return subArray.filter((el, idx) => idx !== fIdx)
+            })
+        }
+
+        const seriesVolume = filterSeriesData(seriesData, 1)
+        const seriesFirstVal = filterSeriesData(seriesData, 2)
+
+
         setChartOptions({
             series: [
                 {
-                    data: seriesData,
+                    data: seriesFirstVal,
                     name: props.seriesName,
                 },
+                {
+                    data: seriesVolume
+                }
             ],
         });
         return true;
