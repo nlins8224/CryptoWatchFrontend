@@ -1,4 +1,4 @@
-import IAsset from '../../interfaces/Asset';
+import IAsset from '../../../interfaces/Asset';
 import { Table } from 'antd';
 import React, { useEffect, useState } from 'react';
 import Text from 'antd/es/typography/Text';

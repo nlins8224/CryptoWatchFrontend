@@ -1,6 +1,7 @@
 import IRenderText from '../../../interfaces/RenderText';
 import { Link } from 'react-router-dom';
 import React from 'react';
+import { TableChart } from '../children/TableChart';
 
 export const columnsVolume: any = [
     {
@@ -95,4 +96,15 @@ export const columns: any = [
     },
 ];
 
-export default { columns, columnsPrice, columnsVolume };
+export const columnsCharts: any = [
+    {
+        title: 'Live Data',
+        dataIndex: 'chart_data',
+        key: 'chart_data',
+        render: (text: IRenderText, record: { chart_data: number[][] }) => (
+            <TableChart seriesData={record.chart_data} />
+        ),
+    },
+];
+
+export default { columns, columnsPrice, columnsVolume, columnsCharts };

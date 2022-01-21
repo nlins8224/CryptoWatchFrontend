@@ -2,8 +2,8 @@ import { Button } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getDatabase, ref, update } from '@firebase/database';
-import { auth } from '../../firebase/firebase';
-import { useWatchlistData } from '../Watchlist/useWatchlistData';
+import { auth } from '../../../firebase/firebase';
+import { useWatchlistData } from '../../../hooks/useWatchlistData';
 
 const SubscribeButton: React.FunctionComponent = () => {
     const [sub, setSub] = useState<boolean>(false);

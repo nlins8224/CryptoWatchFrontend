@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import IAsset from '../../interfaces/Asset';
-import { parseAssets } from '../parseAssets';
+import IAsset from '../interfaces/Asset';
+import { parseAssets } from '../components/parseAssets';
 import { getDatabase, onValue, ref } from '@firebase/database';
 import { useLocation } from 'react-router-dom';
 
-export const useLiveAssetStatusListener = () => {
+export const useLiveAssetEventListener = () => {
     const [liveAsset, setLiveAsset] = useState<IAsset>();
 
     const location = useLocation();
@@ -13,7 +13,7 @@ export const useLiveAssetStatusListener = () => {
     const db = getDatabase();
     const liveAssetRef = ref(db, `/live-coins/${symbol}`);
 
-    const setAssetStatusListener = (ref: any) => {
+    const setAssetEventListener = (ref: any) => {
         onValue(ref, (snapshot) => {
             let asset: IAsset[] = [snapshot.val()];
             asset = parseAssets(asset);
@@ -22,7 +22,7 @@ export const useLiveAssetStatusListener = () => {
     };
 
     useEffect(() => {
-        setAssetStatusListener(liveAssetRef);
+        setAssetEventListener(liveAssetRef);
     }, []);
 
     return liveAsset;

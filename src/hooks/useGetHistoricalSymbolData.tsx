@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import IAsset from '../../interfaces/Asset';
+import IAsset from '../interfaces/Asset';
 import { get, getDatabase, ref } from '@firebase/database';
-import { getAssets } from '../getAssets';
+import { getAssets } from '../components/getAssets';
 
 const db = getDatabase();
 export const useGetHistoricalSymbolData = (

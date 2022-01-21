@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'antd';
-import IAsset from '../../interfaces/Asset';
+import IAsset from '../../../interfaces/Asset';
 import 'antd/dist/antd.css';
 import Text from 'antd/es/typography/Text';
 import { v4 as uuidv4 } from 'uuid';
@@ -13,11 +13,11 @@ const LiveAssetsTable = (props: {
     const [assetArray, setAssetArray] = useState<IAsset[]>([]);
 
     const prepareAssets = () => {
-        const assetsWithKey = props.assets.map((obj) => ({
+        const assetsWithKeyAndChartData = props.assets.map((obj) => ({
             ...obj,
             key: uuidv4(),
         }));
-        setAssetArray(assetsWithKey);
+        setAssetArray(assetsWithKeyAndChartData);
     };
 
     useEffect(() => {
@@ -26,13 +26,12 @@ const LiveAssetsTable = (props: {
 
     return (
         <>
-            <div>
+            <div className="live-assets-table">
                 <Text>{props.title}</Text>
                 <Table
                     dataSource={assetArray}
                     columns={props.columns}
                     pagination={false}
-                    size={'small'}
                 />
             </div>
         </>
