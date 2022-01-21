@@ -6,7 +6,9 @@ import {formatter} from "../../formatter";
 export const AssetInfoPanel = () => {
     const liveAsset = useLiveAssetEventListener();
 
-    if (liveAsset === undefined)
+    console.log(liveAsset)
+
+    if (liveAsset == undefined)
         return <></>
 
     return (
@@ -28,22 +30,21 @@ export const AssetInfoPanel = () => {
                     <Descriptions.Item label="Market Cap Rank">
                         {liveAsset?.market_cap_rank}
                     </Descriptions.Item>
-
                     <Descriptions.Item label="Price Change">
-                        {formatter.format(liveAsset.price_change)}
+                        {formatter.format(liveAsset?.price_change)}
                     </Descriptions.Item>
                     <Descriptions.Item label="High">
-                        {formatter.format(liveAsset.high)}
+                        {formatter.format(liveAsset?.high)}
                     </Descriptions.Item>
                     <Descriptions.Item label="Market Cap Change">
-                        {formatter.format(liveAsset.market_cap_change)}
+                        {formatter.format(liveAsset?.market_cap_change)}
                     </Descriptions.Item>
 
                     <Descriptions.Item label="Price Change Percentage">
                         {liveAsset?.price_change_percentage} %
                     </Descriptions.Item>
                     <Descriptions.Item label="Low">
-                        {formatter.format(liveAsset.low)}
+                        {formatter.format(liveAsset?.low)}
                     </Descriptions.Item>
                     <Descriptions.Item label="Market Cap">
                         {formatter.format(liveAsset?.market_cap)}

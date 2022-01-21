@@ -17,7 +17,7 @@ export const wrapWithPercent = (value: number | string) => {
 export const formatAsset = (asset: IAsset): IAssetFormatted => {
         return {
             id: asset.id,
-            symbol: asset.symbol,
+            symbol: asset.symbol.toUpperCase(),
             name: asset.name,
             last_updated: asset.last_updated,
             market_cap_rank: asset.market_cap_rank.toString(),
@@ -28,9 +28,9 @@ export const formatAsset = (asset: IAsset): IAssetFormatted => {
             high: formatter.format(asset.high),
             low: formatter.format(asset.low),
             market_cap: formatter.format(asset.market_cap),
+            market_cap_change: formatter.format(asset.market_cap_change),
 
             price_change_percentage: wrapWithPercent(asset.price_change_percentage),
-            market_cap_change: wrapWithPercent(asset.market_cap_change),
 
             key: uuidv4()
         }

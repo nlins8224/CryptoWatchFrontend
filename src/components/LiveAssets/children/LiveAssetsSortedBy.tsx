@@ -26,9 +26,7 @@ const LiveAssetsSortedBy = (props: {
             ...obj,
             key: uuidv4(),
         }));
-
-        const formattedAssets = assetsWithKey.map(asset => formatAsset(asset))
-
+        assetsWithKey.map(asset => formatAsset(asset));
         if (props.sortType === 'ascending') {
             const sortedBy: IAssetFormatted[] = assetsWithKey
                 .sort(
