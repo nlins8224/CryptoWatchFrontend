@@ -11,7 +11,7 @@ const LogoutButton: React.FunctionComponent = () => {
             .then(() => navigation('/'))
             .catch((error) => console.log(error));
 
-        localStorage.setItem('auth', 'false')
+        localStorage.setItem('auth', 'false');
     };
 
     return (

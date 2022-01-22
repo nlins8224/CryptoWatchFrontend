@@ -3,29 +3,30 @@ const secondaryColor = '#85B5FA';
 const gridLineColor = '#273341';
 const backgroundColor = '#15191C';
 export const chartViewOptions: any = {
-    yAxis: [{
-        offset: 20,
-        labels: {
-            x: 10,
-            style: {
-                color: secondaryColor,
+    yAxis: [
+        {
+            offset: 20,
+            labels: {
+                x: 10,
+                style: {
+                    color: secondaryColor,
+                },
+                align: 'left',
             },
-            align: 'left',
+            gridLineWidth: 0.5,
+            gridLineColor: gridLineColor,
+            tickColor: secondaryColor,
         },
-        gridLineWidth: 0.5,
-        gridLineColor: gridLineColor,
-        tickColor: secondaryColor,
-    },
         {
             labels: {
-                enabled: false
+                enabled: false,
             },
             offset: 20,
             top: '85%',
             height: '15%',
             gridLineColor: backgroundColor,
             tickColor: secondaryColor,
-        }
+        },
     ],
 
     xAxis: {
@@ -46,7 +47,7 @@ export const chartViewOptions: any = {
     },
 
     tooltip: {
-        shared: true
+        shared: true,
     },
     navigator: {
         outlineColor: gridLineColor,
@@ -65,9 +66,8 @@ export const chartViewOptions: any = {
             showInNavigator: true,
             gapSize: 6,
             connectNulls: true,
-            animation: false
+            animation: false,
         },
-
     },
     chart: {
         backgroundColor: backgroundColor,
@@ -122,9 +122,8 @@ export const chartViewOptions: any = {
             data: [[], []],
             color: primaryColor,
             dataGrouping: {
-                enabled: false
-            }
-
+                enabled: false,
+            },
         },
         {
             type: 'column',
@@ -134,8 +133,7 @@ export const chartViewOptions: any = {
             color: '#3b89f7',
             dataGrouping: {
                 enabled: false,
-            }
-
-        }
+            },
+        },
     ],
 };

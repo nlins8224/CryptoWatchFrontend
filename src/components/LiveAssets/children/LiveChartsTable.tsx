@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {ConfigProvider, Empty, Spin, Table} from 'antd';
+import { ConfigProvider, Empty, Spin, Table } from 'antd';
 import 'antd/dist/antd.css';
 import Text from 'antd/es/typography/Text';
 import { v4 as uuidv4 } from 'uuid';
@@ -35,7 +35,7 @@ const LiveChartsTable = (props: {
     return (
         <>
             <div>
-                <ConfigProvider renderEmpty={() => <Spin/>}>
+                <ConfigProvider renderEmpty={() => <Spin />}>
                     <Text>{props.title}</Text>
                     <Table
                         dataSource={chartsData}

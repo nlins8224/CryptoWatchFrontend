@@ -17,19 +17,19 @@ export const columnsVolume: any = [
         title: 'Volume',
         dataIndex: 'total_volume',
         key: 'volume',
-        align: 'center' as const
+        align: 'center' as const,
     },
     {
         title: 'Price',
         dataIndex: 'price',
         key: 'price',
-        align: 'center' as const
+        align: 'center' as const,
     },
     {
         title: 'Market Cap',
         dataIndex: 'market_cap',
         key: 'market cap',
-        align: 'center' as const
+        align: 'center' as const,
     },
 ];
 
@@ -47,19 +47,19 @@ export const columnsPrice: any = [
         title: 'Price',
         dataIndex: 'price',
         key: 'price',
-        align: 'center' as const
+        align: 'center' as const,
     },
     {
         title: '24h Change',
         dataIndex: 'price_change',
         key: 'change',
-        align: 'center' as const
+        align: 'center' as const,
     },
     {
         title: '24h % Change',
         dataIndex: 'price_change_percentage',
         key: '% change',
-        align: 'center' as const
+        align: 'center' as const,
     },
 ];
 
@@ -76,49 +76,49 @@ export const columns: any = [
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
-        align: 'center' as const
+        align: 'center' as const,
     },
     {
         title: 'Price',
         dataIndex: 'price',
         key: 'price',
-        align: 'center' as const
+        align: 'center' as const,
     },
     {
         title: '24h Change',
         dataIndex: 'price_change',
         key: 'price_change',
-        align: 'center' as const
+        align: 'center' as const,
     },
     {
         title: '24h % Change',
         dataIndex: 'price_change_percentage',
         key: 'price_change_percentage',
-        align: 'center' as const
+        align: 'center' as const,
     },
     {
         title: 'Volume',
         dataIndex: 'total_volume',
         key: 'volume',
-        align: 'center' as const
+        align: 'center' as const,
     },
     {
         title: 'Market Cap',
         dataIndex: 'market_cap',
         key: 'market cap',
-        align: 'center' as const
+        align: 'center' as const,
     },
     {
         title: '24h High',
         dataIndex: 'high',
         key: 'high',
-        align: 'center' as const
+        align: 'center' as const,
     },
     {
         title: '24h Low',
         dataIndex: 'low',
         key: 'low',
-        align: 'center' as const
+        align: 'center' as const,
     },
 ];
 

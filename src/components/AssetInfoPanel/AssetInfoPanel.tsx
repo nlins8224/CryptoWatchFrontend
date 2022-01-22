@@ -1,13 +1,12 @@
 import { Descriptions, PageHeader } from 'antd';
 import { useLiveAssetEventListener } from '../../hooks/useLiveAssetEventListener';
 import SubscribeButton from './children/SubscribeButton';
-import {formatter} from "../../formatter";
+import { formatter } from '../../formatter';
 
 export const AssetInfoPanel = () => {
     const liveAsset = useLiveAssetEventListener();
 
-    if (liveAsset == undefined)
-        return <></>
+    if (liveAsset == undefined) return <></>;
 
     return (
         <div className="asset-info-panel">

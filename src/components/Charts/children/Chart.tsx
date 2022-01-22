@@ -16,13 +16,12 @@ export const Chart = (props: {
 
         const filterSeriesData = (series: number[][], fIdx: number) => {
             return series.map((subArray) => {
-                return subArray.filter((el, idx) => idx !== fIdx)
-            })
-        }
+                return subArray.filter((el, idx) => idx !== fIdx);
+            });
+        };
 
-        const seriesVolume = filterSeriesData(seriesData, 1)
-        const seriesFirstVal = filterSeriesData(seriesData, 2)
-
+        const seriesVolume = filterSeriesData(seriesData, 1);
+        const seriesFirstVal = filterSeriesData(seriesData, 2);
 
         setChartOptions({
             series: [
@@ -31,8 +30,8 @@ export const Chart = (props: {
                     name: props.seriesName,
                 },
                 {
-                    data: seriesVolume
-                }
+                    data: seriesVolume,
+                },
             ],
         });
         return true;
