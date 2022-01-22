@@ -1,6 +1,6 @@
 import { Button } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import { getDatabase, ref, update } from '@firebase/database';
 import { auth } from '../../../firebase/firebase';
 import { useWatchlistData } from '../../../hooks/useWatchlistData';
@@ -12,7 +12,14 @@ const SubscribeButton: React.FunctionComponent = () => {
     const symbol = location.pathname.split('/').pop();
 
     if (!auth || !auth.currentUser) {
-        return <p>Please log in.</p>;
+        return (
+            <Button
+                type="primary"
+                htmlType="submit"
+            >
+                <Link to="/login">Sign In to Add</Link>
+            </Button>
+        )
     }
 
     const toggle = () => {
