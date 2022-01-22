@@ -2,20 +2,6 @@ const primaryColor = '#00C7B0';
 const secondaryColor = '#85B5FA';
 const gridLineColor = '#273341';
 const backgroundColor = '#15191C';
-
-const groupingSettings = [ [
-    'minute',
-    [1, 2, 5, 10, 20, 30]
-],
-    [
-      'hour',
-      [1, 5]
-    ],
-    [
-    'day',
-    [1]
-]]
-
 export const chartViewOptions: any = {
     yAxis: [{
         offset: 20,
@@ -134,8 +120,9 @@ export const chartViewOptions: any = {
             data: [[], []],
             color: primaryColor,
             dataGrouping: {
-                units: groupingSettings
+                enabled: false
             }
+
         },
         {
             type: 'column',
@@ -144,9 +131,7 @@ export const chartViewOptions: any = {
             yAxis: 1,
             color: '#3b89f7',
             dataGrouping: {
-                units: groupingSettings,
-                groupPixelWidth: 0.5,
-                approximation: 'average'
+                enabled: false,
             }
 
         }
