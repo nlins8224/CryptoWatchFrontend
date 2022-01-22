@@ -8,12 +8,7 @@ export const LoginLogoutSwitchButton = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            if (auth.currentUser) {
-                setAuthentication(true)
-            } else {
-                setAuthentication(false)
-            }
-
+            setAuthentication(!!auth.currentUser)
         }, 1000);
         return () => clearInterval(interval);
     }, [])
