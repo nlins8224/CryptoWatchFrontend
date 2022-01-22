@@ -78,6 +78,7 @@ export const chartViewOptions: any = {
         series: {
             showInNavigator: true,
             gapSize: 6,
+            connectNulls: true
         },
     },
     chart: {
