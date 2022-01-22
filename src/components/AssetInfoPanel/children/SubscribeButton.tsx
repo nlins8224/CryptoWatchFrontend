@@ -14,7 +14,7 @@ const SubscribeButton: React.FunctionComponent = () => {
     if (!auth || !auth.currentUser) {
         return (
             <Button type="primary" htmlType="submit">
-                <Link to="/login">Sign In to Add</Link>
+                <Link to="/login">Sign In to subscribe</Link>
             </Button>
         );
     }
