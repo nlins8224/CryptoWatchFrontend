@@ -124,7 +124,7 @@ export const columns: any = [
 
 export const columnsCharts: any = [
     {
-        title: 'Live Data',
+        title: 'Chart Data',
         dataIndex: 'chart_data',
         key: 'chart_data',
         align: 'center' as const,
