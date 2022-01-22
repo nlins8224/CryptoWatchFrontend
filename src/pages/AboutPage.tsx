@@ -4,7 +4,7 @@ import {Col, Row} from "antd";
 
 const AboutPage = () => {
     return (
-        <div className="page-text">
+        <div>
             <Row justify="center">
               <Col xs={20} sm={20} md={20} lg={20} xl={20} xxl={{ span: 14 }}>
                   CryptoWatch is non commercial price tracking website for cryptocurrency.
