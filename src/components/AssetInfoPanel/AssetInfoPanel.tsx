@@ -6,8 +6,6 @@ import {formatter} from "../../formatter";
 export const AssetInfoPanel = () => {
     const liveAsset = useLiveAssetEventListener();
 
-    console.log(liveAsset)
-
     if (liveAsset == undefined)
         return <></>
 

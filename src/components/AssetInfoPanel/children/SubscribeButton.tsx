@@ -48,7 +48,7 @@ const SubscribeButton: React.FunctionComponent = () => {
         if (symbol != null) {
             update(userRef, {
                 symbol,
-            }).then((e) => console.log(e));
+            }).then((e) => e);
         }
         toggle();
     };
@@ -57,7 +57,7 @@ const SubscribeButton: React.FunctionComponent = () => {
         if (symbol != null) {
             update(userRef, {
                 symbol: null,
-            }).then((e) => console.log(e));
+            }).then(e => e)
         }
         toggle();
     };

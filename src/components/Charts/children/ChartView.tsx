@@ -7,7 +7,6 @@ const { TabPane } = Tabs;
 
 export const ChartView = (props: { seriesName: ChartSeriesName }) => {
     const data = chartData(props.seriesName);
-    console.log(data)
 
     if (data.dailyAssets.length === 0) {
         return (

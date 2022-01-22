@@ -25,7 +25,6 @@ const LiveChartsTable = (props: {
                 symbol: key,
             });
         });
-        console.log(liveChartsData);
         setChartsData(liveChartsData);
     };
 

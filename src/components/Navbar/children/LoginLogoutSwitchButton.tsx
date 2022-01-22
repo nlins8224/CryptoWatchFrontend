@@ -19,7 +19,6 @@ export const LoginLogoutSwitchButton = () => {
     }, [])
 
     if (!authentication) {
-        console.log("hi")
         return <AuthButton url="/login" text="Sign In" />;
     } else {
         return <LogoutButton />;

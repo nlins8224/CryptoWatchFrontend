@@ -44,7 +44,6 @@ const LiveTableView = () => {
             chartDataMap.set(key, data);
         });
 
-        console.log(chartDataMap);
         return chartDataMap;
     };
 
