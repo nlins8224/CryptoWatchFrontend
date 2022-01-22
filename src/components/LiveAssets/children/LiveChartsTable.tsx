@@ -9,11 +9,6 @@ interface ChartData {
     chart_data: number[][];
     symbol: string;
 }
-
-const locale = {
-    emptyText: 'Data is loading. Please wait.',
-};
-
 const LiveChartsTable = (props: {
     title: string;
     columns: any;
