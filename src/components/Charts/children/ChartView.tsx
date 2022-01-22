@@ -1,4 +1,4 @@
-import { Tabs } from 'antd';
+import {Spin, Tabs} from 'antd';
 import { Chart } from './Chart';
 import React from 'react';
 import { chartData } from '../utils/chartData';
@@ -7,6 +7,14 @@ const { TabPane } = Tabs;
 
 export const ChartView = (props: { seriesName: ChartSeriesName }) => {
     const data = chartData(props.seriesName);
+    console.log(data)
+
+    if (data.dailyAssets.length === 0) {
+        return (
+            <div className='spin-chart'>
+                <Spin size={"large"} tip={"Please wait, chart data is loading."}/>
+            </div>)
+    }
 
     return (
         <div>

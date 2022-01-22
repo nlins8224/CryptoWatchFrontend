@@ -41,7 +41,7 @@ export const AssetInfoPanel = () => {
                     </Descriptions.Item>
 
                     <Descriptions.Item label="Price Change Percentage">
-                        {liveAsset?.price_change_percentage} %
+                        {liveAsset?.price_change_percentage}%
                     </Descriptions.Item>
                     <Descriptions.Item label="Low">
                         {formatter.format(liveAsset?.low)}
