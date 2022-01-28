@@ -10,6 +10,8 @@ const LogoutButton: React.FunctionComponent = () => {
         auth.signOut()
             .then(() => navigation('/'))
             .catch((error) => console.log(error));
+
+        localStorage.setItem('auth', 'false');
     };
 
     return (

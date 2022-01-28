@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { Button, Form, Input, Space } from 'antd';
+import { Button, Form, Input, Space, Typography } from 'antd';
+
+const { Text } = Typography;
 
 const LoginPage: React.FunctionComponent = () => {
     const [authentication, setAuthentication] = useState<boolean>(false);
@@ -22,7 +24,7 @@ const LoginPage: React.FunctionComponent = () => {
             })
             .catch(() => {
                 setAuthentication(false);
-                setError('Unable to sign in. Please try again later.');
+                setError('Invalid Credentials');
             });
     };
 
@@ -51,7 +53,7 @@ const LoginPage: React.FunctionComponent = () => {
                     rules={[
                         {
                             required: true,
-                            message: 'Please input your username!',
+                            message: 'Please input your email!',
                         },
                     ]}
                 >
@@ -88,6 +90,7 @@ const LoginPage: React.FunctionComponent = () => {
                     </Space>
                 </Form.Item>
             </Form>
+            <Text className='credentials-text' type="danger">{error}</Text>
         </div>
     );
 };

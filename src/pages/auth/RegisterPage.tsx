@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { Button, Form, Input, Space } from 'antd';
+import {Button, Form, Input, Space, Typography} from 'antd';
+
+const { Text } = Typography;
 
 const RegisterPage: React.FunctionComponent = (props) => {
     const [register, setRegister] = useState<boolean>(false);
@@ -60,7 +62,7 @@ const RegisterPage: React.FunctionComponent = (props) => {
                     rules={[
                         {
                             required: true,
-                            message: 'Please input your username!',
+                            message: 'Please input your email!',
                         },
                     ]}
                 >
@@ -108,6 +110,7 @@ const RegisterPage: React.FunctionComponent = (props) => {
                     </Space>
                 </Form.Item>
             </Form>
+            <Text className='credentials-text' type="danger">{error}</Text>
         </div>
     );
 };

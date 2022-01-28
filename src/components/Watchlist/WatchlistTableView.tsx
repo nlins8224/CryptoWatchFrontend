@@ -4,18 +4,20 @@ import 'antd/dist/antd.css';
 import { useLiveAssetsEventListener } from '../../hooks/useLiveAssetsEventListener';
 import { getDatabase, ref } from '@firebase/database';
 import { useWatchlistData } from '../../hooks/useWatchlistData';
-import { columns } from './config/columns';
+import { columns } from '../LiveAssets/config/columns';
 import { LiveAssetsTable } from '../LiveAssets/children/LiveAssetsTable';
 import { Col, Row } from 'antd';
 import { getTableChartData } from '../LiveAssets/utils/getTableChartData';
-import {LiveChartsTable} from "../LiveAssets/children/LiveChartsTable";
-import {columnsCharts} from "../LiveAssets/config/columns";
+import { LiveChartsTable } from '../LiveAssets/children/LiveChartsTable';
+import { columnsCharts } from '../LiveAssets/config/columns';
 
 const db = getDatabase();
 const liveCoinsRef = ref(db, '/live-coins');
 const WatchlistTableView: () => JSX.Element = () => {
     const [filteredAssets, setFilteredAssets] = useState<IAsset[]>([]);
-    const [filteredChartData, setFilteredChartData] = useState<Map<string, any>>(new Map())
+    const [filteredChartData, setFilteredChartData] = useState<
+        Map<string, any>
+    >(new Map());
     const chartData = getTableChartData({ name: 'Price' });
     const assetArray = useLiveAssetsEventListener(liveCoinsRef);
     const symbols = useWatchlistData();
@@ -28,32 +30,24 @@ const WatchlistTableView: () => JSX.Element = () => {
     };
 
     const filterChartData = (chartData: Map<string, any>) => {
-        const filtered: Map<string, any> = new Map()
+        const filtered: Map<string, any> = new Map();
         chartData.forEach((value: any, key: string) => {
             if (symbols?.data.includes(key)) {
-                filtered.set(key, value)
+                filtered.set(key, value);
             }
-
-        })
-        setFilteredChartData(filtered)
-    }
+        });
+        setFilteredChartData(filtered);
+    };
 
     useEffect(() => {
         filterAssets();
-        filterChartData(chartData)
+        filterChartData(chartData);
     }, [symbols?.data]);
 
     return (
         <div>
             <Row justify="center">
-                <Col
-                    xs={20}
-                    sm={20}
-                    md={20}
-                    lg={20}
-                    xl={20}
-                    xxl={{ span: 14 }}
-                >
+                <Col xs={20} sm={20} md={20} lg={20} xl={20} xxl={{ span: 14 }}>
                     <LiveAssetsTable
                         assets={filteredAssets}
                         title={'Watchlist'}
